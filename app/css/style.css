@@ -50,10 +50,7 @@ section.bg {
     background-size:cover;
 }
 
-.mybtn {
-  width: 75px;
-  background-color: #95EAEB;
-}
-.mybtn > i {
-  color: #ffffff;
+.bold {
+  font-weight: bold;
+  
 }

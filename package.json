@@ -1,0 +1,22 @@
+{
+  "name": "hotelproject",
+  "version": "1.0.0",
+  "description": "A very basic hotel-searching website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LuckyLam34/HotelProject.git"
+  },
+  "author": "LuckyLam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LuckyLam34/HotelProject/issues"
+  },
+  "homepage": "https://github.com/LuckyLam34/HotelProject#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}

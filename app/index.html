@@ -53,22 +53,36 @@
       <h1>Find your perfect hotel</h1>
       <div class="container">
         <div class="row">
-<!--
-           <div id="custom-search-input">
-              <div class="input-group col-md-offset-3 col-md-6 col-xs-offset-3 col-xs-6">
-                  <input type="text" class="search-query form-control" placeholder="Search" />
-                  <span class="input-group-btn">
-                      <button class="btn btn-danger" type="button">
-                          
-                      </button>
-                  </span>
-              </div>
-            </div>
--->
          <div class="input-group col-md-offset-3 col-md-6 col-xs-12">
             <input type="text" class="form-control" placeholder="Searching...">
             <div class="input-group-btn">
-                <button class="btn btn-default mybtn" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                <button class="btn btn-default mybtn" type="submit">
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </div>
+          </div>
+          <div class="cool input-group col-md-offset-3 col-md-6 col-xs-12">
+            <div class="bold col-md-6">
+              Check In
+              <div class="form-group">
+                <div class="input-group date" id="datetimepickerin">
+                  <input type="text" class="form-control">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="bold col-md-6">
+              Check Out
+              <div class="form-group">
+                <div class="input-group date" id="datetimepickerout">
+                  <input type="text" class="form-control">
+                  <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -189,5 +203,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/parallax-plugin.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
