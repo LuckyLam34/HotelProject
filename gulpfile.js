@@ -1,17 +1,20 @@
 'use strict';
 
-var gulp      = require('gulp');
-var sass      = require('gulp-sass');
-var useref    = require('gulp-useref');
-var gulpIf    = require('gulp-if');
-var cssnano   = require('gulp-cssnano');
-var imagemin  = require('gulp-imagemin');
-var cache     = require('gulp-cache');
+var gulp        = require('gulp');
+var sass        = require('gulp-sass');
+var useref      = require('gulp-useref');
+var gulpIf      = require('gulp-if');
+var cssnano     = require('gulp-cssnano');
+var imagemin    = require('gulp-imagemin');
+var cache       = require('gulp-cache');
+var del         = require('del');
+var runSequence = require('run-sequence');
 
 var src = 'app/',
     paths = {
       scss: 'scss/**/*.scss',
-      images: 'Resources/**/*.+(png|jpg|jpeg|gif|svg)'
+      images: 'Resources/**/*.+(png|jpg|jpeg|gif|svg)',
+      fonts: 'fonts/**/*'
     };
 
 gulp.task('sass', function() {
@@ -49,3 +52,26 @@ gulp.task('images', function() {
     .pipe(gulp.dest('dist/Resources'));
 });
 
+//Copy fonts to dist
+gulp.task('fonts', function() {
+  return gulp.src(src + paths.fonts)
+    .pipe(gulp.dest('dist/fonts'));
+});
+
+//clean dist
+gulp.task('clean:dist', function() {
+  return del.sync('dist');
+});
+
+//run sequence
+gulp.task('build', function(callback) {
+  runSequence('clean:dist', 
+    ['sass', 'useref', 'images', 'fonts'],
+    callback
+  );
+});
+
+//default sequence tasks (only type "gulp")
+gulp.task('default', function(callback) {
+  runSequence(['sass', 'browserSync', 'watch'], callback);
+});
