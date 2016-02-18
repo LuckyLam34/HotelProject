@@ -8,8 +8,8 @@
   <!-- Bootstrap -->
   
   <!--  build:css css/main.min.css -->
-<!--  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">-->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/searchbox.css">
   <!--  endbuild -->
@@ -202,9 +202,14 @@
   </footer> 
   
   <!--Scripts-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
+  
+  <!-- build:js js/framework.min.js-->
+  <script src="js/browserifying/framework.js"></script>
+  <!-- endbuild-->
+  
+  <!-- build:js js/app.min.js-->
   <script src="js/parallax-plugin.js"></script>
   <script src="js/script.js"></script>
+  <!-- endbuild-->
 </body>
 </html>

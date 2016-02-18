@@ -9,12 +9,18 @@ var imagemin    = require('gulp-imagemin');
 var cache       = require('gulp-cache');
 var del         = require('del');
 var runSequence = require('run-sequence');
+var uglify      = require('gulp-uglify');
+var jshint      = require('gulp-jshint');
+var browserify  = require('browserify');
+var source      = require('vinyl-source-stream');
+var buffer      = require('vinyl-buffer');
 
 var src = 'app/',
     paths = {
       scss: 'scss/**/*.scss',
       images: 'Resources/**/*.+(png|jpg|jpeg|gif|svg)',
-      fonts: 'fonts/**/*'
+      fonts: 'fonts/**/*',
+      js: 'js/**/*.js'
     };
 
 gulp.task('sass', function() {
@@ -26,6 +32,7 @@ gulp.task('sass', function() {
 //watch for scss files changes
 gulp.task('watch', function() {
   gulp.watch(src + paths.scss, ['sass']);
+  gulp.watch(src + paths.js, ['lint']);
 });
 
 //concatenates and minifies css files
@@ -34,7 +41,7 @@ gulp.task('useref', function() {
     .pipe(useref())
   
     //Minifies only if it's a JS file
-    //    .pipe(gulpIf('*.js', uglify()))
+    .pipe(gulpIf('*.js', uglify()))
     
     //Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', cssnano()))
@@ -73,5 +80,36 @@ gulp.task('build', function(callback) {
 
 //default sequence tasks (only type "gulp")
 gulp.task('default', function(callback) {
-  runSequence(['sass', 'browserSync', 'watch'], callback);
+  runSequence(['sass', 'lint', 'watch'], callback);
+});
+
+gulp.task('lint', function() {
+  return gulp.src(src + paths.js)
+    .pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('default'));
+});
+
+//gulp.task('browserify', function() {
+//  return browserify('./app/js/require.js')
+//    
+//    //bundles it and creates a file called main.js
+//    .bundle()
+//    .pipe(source('require.js'))
+//  
+//    //buffer it so that we can uglify it
+////    .pipe(buffer())
+////    .pipe(uglify())
+//    
+//    //saves it to
+//    .pipe(gulp.dest('./app/js/browserifying'));
+//});
+
+gulp.task('framework', function() {
+  return browserify({
+    debug: false
+  })
+  .require('jquery')
+  .bundle()
+  .pipe(source('framework.js'))
+  .pipe(gulp.dest('./app/js/browserifying'));
 });

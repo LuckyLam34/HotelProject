@@ -3,9 +3,9 @@
  * jQuery Simple Parallax Plugin
  *
  */
-
+var $ = jQuery = require('jquery');
 (function($) {
-
+    
     $.fn.parallax = function(options) {
 
         var windowHeight = $(window).height();
@@ -40,7 +40,7 @@
 
             });
         });
-    }
+    };
 }(jQuery));
 
 $('.bg-1,.bg-3').parallax({
