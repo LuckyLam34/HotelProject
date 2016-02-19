@@ -1,9 +1,11 @@
+
 .mybtn {
   width: 75px;
-  background-color: #95EAEB; }
-  .mybtn > i {
-    color: #ffffff; }
-
+  background-color: #95EAEB;
+}
+.mybtn > i {
+  color: #ffffff;
+}
 .cool {
   background-color: #95EAEB;
   height: 300px;
@@ -12,6 +14,9 @@
   margin-top: 5px;
   padding: 10px 0;
   font-weight: bold;
-  font-size: 1.5em; }
-  .cool > col-md-6 {
-    font-size: 30px; }
+  font-size: 1.5em;
+}
+
+.cool > col-md-6 {
+  font-size: 30px;
+}

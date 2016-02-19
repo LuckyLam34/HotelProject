@@ -1,56 +1,39 @@
 body {
-  font-size: 1.5em;
-  font-family: "Century Gothic", Helvetica, sans-serif;
-  background-color: #f2f2f2;
-}
-
-.navbar-inverse .navbar-nav > li > a {
-  color: #ffffff;
-}
-
-.navbar {
-  margin-bottom: 0;
-}
+  font: 100% Century Gothic, Helvetica, sans-serif;
+  background-color: #f2f2f2; }
 
 .navbar-inverse {
   background-color: #95EAEB;
-  border-color: #95EAEB;
-}
+  border-color: #95EAEB; }
+  .navbar-inverse .navbar-nav > li > a {
+    color: #ffffff; }
+
+.navbar {
+  margin-bottom: 0; }
 
 section.logo {
   height: 80px;
-  background-color: #e6e6e6;
-}
+  background-color: #e6e6e6; }
+
+section.bg, section.bg-1, section.bg-2 {
+  height: 500px;
+  padding: 50px 0; }
 
 .divider {
-  height: 50px;
-}
+  height: 50px; }
 
-section.bg {
-    height:500px;
-    padding-top:50px;
-    padding-bottom:50px;
-}
+.bg, .bg-1, .bg-2 {
+  color: #ffffff;
+  background-size: cover; }
 
 .bg-1 {
-    background: url('../Resources/resort.jpg') no-repeat center center fixed;
-    color:#fff;
-    background-size:cover;
-}
+  background: url("../Resources/resort.jpg") no-repeat center center fixed; }
 
 .bg-2 {
-    background: url('../Resources/luxury_hotel1.jpg') no-repeat top center fixed;
-    color:#fff;
-    background-size:cover;
-}
+  background: url("../Resources/luxury_hotel1.jpg") no-repeat top center fixed; }
 
-.bg-3 {
-    background: url('../Resources/luxury_hotel2.jpg') no-repeat bottom center fixed;
-    color:#fff;
-    background-size:cover;
-}
+.bg-1 {
+  background: url("../Resources/luxury_hotel2.jpg") no-repeat bottom center fixed; }
 
 .bold {
-  font-weight: bold;
-  
-}
+  font-weight: bold; }

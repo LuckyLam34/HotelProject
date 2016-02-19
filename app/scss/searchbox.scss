@@ -1,8 +1,11 @@
+$white: #ffffff;
 .mybtn {
   width: 75px;
-  background-color: #95EAEB; }
-  .mybtn > i {
-    color: #ffffff; }
+  background-color: #95EAEB;
+  &> i {
+    color: $white;
+  }
+}
 
 .cool {
   background-color: #95EAEB;
@@ -12,6 +15,8 @@
   margin-top: 5px;
   padding: 10px 0;
   font-weight: bold;
-  font-size: 1.5em; }
-  .cool > col-md-6 {
-    font-size: 30px; }
+  font-size: 1.5em;
+  &> col-md-6 {
+    font-size: 30px;
+  }
+}

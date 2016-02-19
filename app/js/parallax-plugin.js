@@ -3,6 +3,8 @@
  * jQuery Simple Parallax Plugin
  *
  */
+'use strict';
+
 var $ = jQuery = require('jquery');
 (function($) {
     
