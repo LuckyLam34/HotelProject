@@ -15,7 +15,7 @@ var browserify  = require('browserify');
 var source      = require('vinyl-source-stream');
 var buffer      = require('vinyl-buffer');
 
-var src = 'app/',
+var src = 'assets/',
     paths = {
       scss: 'sass/**/*.scss',
       images: 'Resources/**/*.+(png|jpg|jpeg|gif|svg)',
@@ -37,7 +37,7 @@ gulp.task('watch', function() {
 
 //concatenates and minifies css files
 gulp.task('useref', function() {
-  return gulp.src(src + '*.html')
+  return gulp.src('*.html')
     .pipe(useref())
   
     //Minifies only if it's a JS file
@@ -89,21 +89,6 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('default'));
 });
 
-//gulp.task('browserify', function() {
-//  return browserify('./app/js/require.js')
-//    
-//    //bundles it and creates a file called main.js
-//    .bundle()
-//    .pipe(source('require.js'))
-//  
-//    //buffer it so that we can uglify it
-////    .pipe(buffer())
-////    .pipe(uglify())
-//    
-//    //saves it to
-//    .pipe(gulp.dest('./app/js/browserifying'));
-//});
-
 gulp.task('framework', function() {
   return browserify({
     debug: false
@@ -111,5 +96,5 @@ gulp.task('framework', function() {
   .require('jquery')
   .bundle()
   .pipe(source('framework.js'))
-  .pipe(gulp.dest('./app/js/browserifying'));
+  .pipe(gulp.dest('./assets/js/browserifying'));
 });
