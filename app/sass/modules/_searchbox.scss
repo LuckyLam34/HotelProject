@@ -1,13 +1,13 @@
-
 .mybtn {
   width: 75px;
-  background-color: #95EAEB;
+  background-color: $blizzard-blue;
+  &> i {
+    color: $white;
+  }
 }
-.mybtn > i {
-  color: #ffffff;
-}
+
 .cool {
-  background-color: #95EAEB;
+  background-color: $blizzard-blue;
   height: 300px;
   border-radius: 4px;
   opacity: 0.5;
@@ -15,8 +15,7 @@
   padding: 10px 0;
   font-weight: bold;
   font-size: 1.5em;
-}
-
-.cool > col-md-6 {
-  font-size: 30px;
+  &> col-md-6 {
+    font-size: 30px;
+  }
 }

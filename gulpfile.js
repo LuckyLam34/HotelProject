@@ -17,7 +17,7 @@ var buffer      = require('vinyl-buffer');
 
 var src = 'app/',
     paths = {
-      scss: 'scss/**/*.scss',
+      scss: 'sass/**/*.scss',
       images: 'Resources/**/*.+(png|jpg|jpeg|gif|svg)',
       fonts: 'fonts/**/*',
       js: 'js/**/*.js'

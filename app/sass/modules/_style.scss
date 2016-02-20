@@ -1,11 +1,5 @@
-//$font: Century Gothic, Helvetica, sans-serif;
-//$bg-color: #f2f2f2;
-//$navbar-link-color: #ffffff;
-//$logo-color: #95EAEB;
-//$section-logo-color: #e6e6e6;
-
 body {
-  font: 100% $font;
+  font: 140% $font;
   background-color: $bg-color;
 }
 
@@ -36,24 +30,26 @@ section {
   height: 50px;
 }
 
-.bg {
-  color: #ffffff;
-  background-size: cover;
+.the-bg {
+  color: $white;
 }
 
 .bg-1 {
-  @extend .bg;
    background: url('../Resources/resort.jpg') no-repeat center center fixed;
+  background-size: cover;
+  @extend .the-bg;
 }
 
 .bg-2 {
-  @extend .bg;
    background: url('../Resources/luxury_hotel1.jpg') no-repeat top center fixed;
+  background-size: cover;
+  @extend .the-bg;
 }
 
-.bg-1 {
-  @extend .bg;
+.bg-3 {
    background: url('../Resources/luxury_hotel2.jpg') no-repeat bottom center fixed;
+  background-size: cover;
+  @extend .the-bg;
 }
 
 .bold {

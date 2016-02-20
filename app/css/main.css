@@ -1,0 +1,59 @@
+.mybtn {
+  width: 75px;
+  background-color: #95EAEB; }
+  .mybtn > i {
+    color: #ffffff; }
+
+.cool {
+  background-color: #95EAEB;
+  height: 300px;
+  border-radius: 4px;
+  opacity: 0.5;
+  margin-top: 5px;
+  padding: 10px 0;
+  font-weight: bold;
+  font-size: 1.5em; }
+  .cool > col-md-6 {
+    font-size: 30px; }
+
+body {
+  font: 140% Century Gothic, Helvetica, sans-serif;
+  background-color: #f2f2f2; }
+
+.navbar-inverse {
+  background-color: #95EAEB;
+  border-color: #95EAEB; }
+  .navbar-inverse .navbar-nav > li > a {
+    color: #ffffff; }
+
+.navbar {
+  margin-bottom: 0; }
+
+section.logo {
+  height: 80px;
+  background-color: #e6e6e6; }
+
+section.bg {
+  height: 500px;
+  padding: 50px 0; }
+
+.divider {
+  height: 50px; }
+
+.the-bg, .bg-1, .bg-2, .bg-3 {
+  color: #ffffff; }
+
+.bg-1 {
+  background: url("../Resources/resort.jpg") no-repeat center center fixed;
+  background-size: cover; }
+
+.bg-2 {
+  background: url("../Resources/luxury_hotel1.jpg") no-repeat top center fixed;
+  background-size: cover; }
+
+.bg-3 {
+  background: url("../Resources/luxury_hotel2.jpg") no-repeat bottom center fixed;
+  background-size: cover; }
+
+.bold {
+  font-weight: bold; }

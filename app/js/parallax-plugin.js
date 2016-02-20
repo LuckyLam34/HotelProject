@@ -5,7 +5,8 @@
  */
 'use strict';
 
-var $ = jQuery = require('jquery');
+var jQuery = require('jquery');
+var $      = require('jquery');
 (function($) {
     
     $.fn.parallax = function(options) {
