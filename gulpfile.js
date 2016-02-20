@@ -98,3 +98,8 @@ gulp.task('framework', function() {
   .pipe(source('framework.js'))
   .pipe(gulp.dest('./assets/js/browserifying'));
 });
+
+//clear catche
+gulp.task('cache:clear', function (callback) {
+  return cache.clearAll(callback);
+});
