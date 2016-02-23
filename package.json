@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/LuckyLam34/HotelProject#readme",
   "devDependencies": {
+    "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18",
     "bootstrap": "^3.3.6",
     "browserify": "^13.0.0",
     "del": "^2.2.0",
@@ -26,6 +28,7 @@
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-jshint": "^2.0.0",
+    "gulp-ng-annotate": "^1.1.0",
     "gulp-sass": "^2.2.0",
     "gulp-uglify": "^1.5.2",
     "gulp-useref": "^3.0.5",

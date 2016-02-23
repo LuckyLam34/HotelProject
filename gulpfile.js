@@ -14,13 +14,16 @@ var jshint      = require('gulp-jshint');
 var browserify  = require('browserify');
 var source      = require('vinyl-source-stream');
 var buffer      = require('vinyl-buffer');
+var ngAnnotate  = require('gulp-ng-annotate');
 
 var src = 'assets/',
+    app = 'app/',
     paths = {
       scss: 'sass/**/*.scss',
       images: 'Resources/**/*.+(png|jpg|jpeg|gif|svg)',
       fonts: 'fonts/**/*',
-      js: 'js/**/*.js'
+      js: 'js/**/*.js',
+      appJs: app + '**/*.js'
     };
 
 gulp.task('sass', function() {
@@ -32,7 +35,7 @@ gulp.task('sass', function() {
 //watch for scss files changes
 gulp.task('watch', function() {
   gulp.watch(src + paths.scss, ['sass']);
-  gulp.watch(src + paths.js, ['lint']);
+  gulp.watch(paths.appJs, ['lint']);
 });
 
 //concatenates and minifies css files
@@ -71,7 +74,7 @@ gulp.task('clean:dist', function() {
 });
 
 //run sequence
-gulp.task('build', ['framework'], function(callback) {
+gulp.task('build', ['framework', 'script'], function(callback) {
   runSequence('clean:dist', 
     ['sass', 'useref', 'images', 'fonts'],
     callback
@@ -84,7 +87,7 @@ gulp.task('default', function(callback) {
 });
 
 gulp.task('lint', function() {
-  return gulp.src(src + paths.js)
+  return gulp.src(paths.appJs)
     .pipe(jshint('.jshintrc'))
     .pipe(jshint.reporter('default'));
 });
@@ -93,10 +96,24 @@ gulp.task('framework', function() {
   return browserify({
     debug: false
   })
-  .require('jquery')
+  .require('angular')
+  .require('angular-ui-router')
   .bundle()
   .pipe(source('framework.js'))
-  .pipe(gulp.dest('./assets/js/browserifying'));
+  .pipe(gulp.dest('./app'));
+});
+
+gulp.task('script', function() {
+  return browserify({
+    entries: app + 'app.js',
+    debug: true
+  })
+  .external('angular')
+  .external('angular-ui-router')
+  .bundle()
+  .pipe(source('app.js'))
+  .pipe(ngAnnotate())
+  .pipe(gulp.dest(app + '.tmp'));
 });
 
 //clear catche
