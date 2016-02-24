@@ -35,7 +35,7 @@ gulp.task('sass', function() {
 //watch for scss files changes
 gulp.task('watch', function() {
   gulp.watch(src + paths.scss, ['sass']);
-  gulp.watch(paths.appJs, ['lint']);
+  gulp.watch(paths.appJs, ['script', 'lint']);
 });
 
 //concatenates and minifies css files
@@ -100,7 +100,7 @@ gulp.task('framework', function() {
   .require('angular-ui-router')
   .bundle()
   .pipe(source('framework.js'))
-  .pipe(gulp.dest('./app'));
+  .pipe(gulp.dest(app + '.tmp'));
 });
 
 gulp.task('script', function() {
