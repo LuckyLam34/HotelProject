@@ -10,9 +10,11 @@ angular
     require('angular-ui-router'),
     'myApp.services',
     'myApp.common'
-  ]);
+  ])
+  .config(function($logProvider) {
+    $logProvider.debugEnabled(true);
+  });
 
 angular.element(document).ready(function() {
   angular.bootstrap(document, ['myApp']);
-  alert('hello at main app.js');
 });

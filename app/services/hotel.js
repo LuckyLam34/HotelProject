@@ -2,9 +2,9 @@
 
 var HotelService = (function() {
   function HotelService() {
-    this.hello = 'hello';
+    this.hello = 'hello LuckyLam';
   }
+  return HotelService;
 })();
 
 module.exports = HotelService;
-alert('in services/hotel.js');
