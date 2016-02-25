@@ -1,6 +1,7 @@
 'use strict';
 
 var HotelService = (function() {
+  /*@ngInject*/
   function HotelService() {
     this.hello = 'hello LuckyLam';
   }

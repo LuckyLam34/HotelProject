@@ -1,20 +1,22 @@
 'use strict';
 
-var gulp        = require('gulp');
-var sass        = require('gulp-sass');
-var useref      = require('gulp-useref');
-var gulpIf      = require('gulp-if');
-var cssnano     = require('gulp-cssnano');
-var imagemin    = require('gulp-imagemin');
-var cache       = require('gulp-cache');
-var del         = require('del');
-var runSequence = require('run-sequence');
-var uglify      = require('gulp-uglify');
-var jshint      = require('gulp-jshint');
-var browserify  = require('browserify');
-var source      = require('vinyl-source-stream');
-var buffer      = require('vinyl-buffer');
-var ngAnnotate  = require('gulp-ng-annotate');
+var gulp          = require('gulp');
+var sass          = require('gulp-sass');
+var useref        = require('gulp-useref');
+var gulpIf        = require('gulp-if');
+var cssnano       = require('gulp-cssnano');
+var imagemin      = require('gulp-imagemin');
+var cache         = require('gulp-cache');
+var del           = require('del');
+var runSequence   = require('run-sequence');
+var uglify        = require('gulp-uglify');
+var jshint        = require('gulp-jshint');
+var browserify    = require('browserify');
+var source        = require('vinyl-source-stream');
+var buffer        = require('vinyl-buffer');
+var ngAnnotate    = require('gulp-ng-annotate');
+var browserSync   = require('browser-sync').create();
+var templateCache  = require('gulp-angular-templatecache');
 
 var src = 'assets/',
     app = 'app/',
@@ -23,7 +25,8 @@ var src = 'assets/',
       images: 'Resources/**/*.+(png|jpg|jpeg|gif|svg)',
       fonts: 'fonts/**/*',
       js: 'js/**/*.js',
-      appJs: app + '**/*.js'
+      appJs: app + '**/*.js',
+      appHtml: app + '**/*.html'
     };
 
 gulp.task('sass', function() {
@@ -97,6 +100,7 @@ gulp.task('framework', function() {
     debug: false
   })
   .require('angular')
+  .require('angular-ui-bootstrap')
   .require('angular-ui-router')
   .bundle()
   .pipe(source('framework.js'))
@@ -109,6 +113,7 @@ gulp.task('script', function() {
     debug: true
   })
   .external('angular')
+  .external('angular-ui-bootstrap')
   .external('angular-ui-router')
   .bundle()
   .pipe(source('app.js'))
@@ -119,4 +124,23 @@ gulp.task('script', function() {
 //clear catche
 gulp.task('cache:clear', function (callback) {
   return cache.clearAll(callback);
+});
+
+//spin up  server using Browser Sync
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: 'dist'
+    },
+  })
+});
+
+gulp.task('template', function() {
+  return gulp.src(paths.appHtml)
+    .pipe(templateCache({
+      module: 'myApp',
+      root: 'app/',
+      moduleSystem: 'IIFE'
+    }))
+    .pipe(gulp.dest(app + '.tmp'));
 });

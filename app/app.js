@@ -11,7 +11,7 @@ angular
     'myApp.services',
     'myApp.common'
   ])
-  .config(function($logProvider) {
+  .config(/*@ngInject*/function($logProvider) {
     $logProvider.debugEnabled(true);
   });
 
