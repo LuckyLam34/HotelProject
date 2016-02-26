@@ -32,12 +32,15 @@ var src = 'assets/',
 gulp.task('sass', function() {
   return gulp.src(src + paths.scss)
     .pipe(sass())
-    .pipe(gulp.dest(src + 'css'));
+    .pipe(gulp.dest(src + 'css'))
+    .pipe(browserSync.reload({
+      stream: true
+    }));
 });
 
 //watch for scss files changes
 gulp.task('watch', function() {
-  gulp.watch(src + paths.scss, ['sass']);
+  gulp.watch(src + paths.scss, ['sass', 'useref']);
   gulp.watch(paths.appJs, ['script', 'lint']);
 });
 
