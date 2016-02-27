@@ -18,7 +18,7 @@
   "homepage": "https://github.com/LuckyLam34/HotelProject#readme",
   "devDependencies": {
     "angular": "^1.5.0",
-    "angular-ui-bootstrap": "^1.1.2",
+    "angular-ui-bootstrap": "^0.12.0",
     "angular-ui-router": "^0.2.18",
     "angularfire": "^1.1.4",
     "bootstrap": "^3.3.6",

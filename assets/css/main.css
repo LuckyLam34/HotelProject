@@ -24,7 +24,8 @@ body {
   background-color: #95EAEB;
   border-color: #95EAEB; }
   .navbar-inverse .navbar-nav > li > a {
-    color: #ffffff; }
+    color: #ffffff;
+    font-size: 150%; }
 
 .navbar {
   margin-bottom: 0; }

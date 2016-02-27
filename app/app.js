@@ -7,6 +7,7 @@ require('./services/module');
 
 angular
   .module('myApp', [
+    require('angular-ui-bootstrap'),
     require('angular-ui-router'),
     'myApp.services',
     'myApp.common'
