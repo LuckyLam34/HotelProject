@@ -2,14 +2,15 @@
 
 var NavbarController = (function() {
   /*@ngInject*/
-  function NavbarController(HotelService, $rootScope) {
+  function NavbarController(HotelService, $rootScope, FirebaseService) {
     this.$rootScope = $rootScope;
     this.HotelService = HotelService;
+    this.FirebaseService = FirebaseService;
 //    console.log(this);
   }
   
   NavbarController.prototype.hi = function() {
-    return this.HotelService.hello;
+    return this.FirebaseService.get();
   }
   
   return NavbarController;
