@@ -105,6 +105,8 @@ gulp.task('framework', function() {
   .require('angular')
   .require('angular-ui-bootstrap')
   .require('angular-ui-router')
+  .require('firebase')
+  .require('angularfire')
   .bundle()
   .pipe(source('framework.js'))
   .pipe(gulp.dest(app + '.tmp'));
@@ -118,6 +120,8 @@ gulp.task('script', function() {
   .external('angular')
   .external('angular-ui-bootstrap')
   .external('angular-ui-router')
+  .external('firebase')
+  .external('angularfire')
   .bundle()
   .pipe(source('app.js'))
   .pipe(ngAnnotate())
