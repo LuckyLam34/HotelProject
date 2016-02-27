@@ -31,5 +31,6 @@
       </ul>
     </div>
   </div>
-  <span ng-repeat="x in navbar.showData()"></span>
+<!--  <span ng-repeat="x in navbar.showData() track by $index"> {{x}} </span>-->
+<span>{{navbar.showData().$value}}</span>
 </nav>

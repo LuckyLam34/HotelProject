@@ -4,21 +4,17 @@ require('angularfire');
 
 var FirebaseService = (function() {
   /*@ngInject*/
-  function FirebaseService($firebaseArray) {
-    this.$firebaseArray = $firebaseArray;
-    this.ref = new Firebase('https://shining-fire-8539.firebaseio.com');
-    this.data = this.$firebaseArray(this.ref);
+  function FirebaseService($firebaseObject) {
+    this.$firebaseObject = $firebaseObject;
+    this.ref = new Firebase('https://shining-fire-8539.firebaseio.com/hotels/1/hotel_address');
+    var data = [];
+    data = this.$firebaseObject(this.ref);
+    this.data = data;
   }
   
   FirebaseService.prototype.getData = function() {
-    var data = [];
-    data = this.data;
-    console.log(data);
-    
-    for (var prop in data) {
-      console.log(data[prop]);
-    }
-    return data;
+//    alert('hey');
+    return this.$firebaseObject(this.ref);
   }
   
   return FirebaseService;

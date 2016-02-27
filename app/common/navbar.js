@@ -6,6 +6,7 @@ var NavbarController = (function() {
     this.HotelService = HotelService;
     this.FirebaseService = FirebaseService;
     this.$rootScope = $rootScope;
+    this.data = FirebaseService.getData();
     
   }
   NavbarController.prototype.hi = function() {
@@ -13,7 +14,13 @@ var NavbarController = (function() {
   }
   
   NavbarController.prototype.showData = function() {
-    var data = this.FirebaseService.getData();
+//    var dataTemp = [];
+//     
+//    for (var prop in this.data) {
+//      dataTemp.push(this.data[prop][att]);
+//    }
+    
+    return this.data;
   }
   
   return NavbarController;
