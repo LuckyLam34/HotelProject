@@ -6,7 +6,7 @@ var HotelController = require('./hotel');
 angular
   .module('myApp.hotel', [])
   .controller('HotelController', HotelController)
-  .config(/*@ngInject*/function($stateProvider, $urlRouterProvider) {
+ .config(/*@ngInject*/function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state({
         name: 'hotel',
@@ -15,4 +15,5 @@ angular
         controller: 'HotelController',
         controllerAs: 'hotel'
       });
+    $urlRouterProvider.otherwise('/');
   });
