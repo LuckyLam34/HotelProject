@@ -42,6 +42,7 @@ gulp.task('sass', function() {
 gulp.task('watch', function() {
   gulp.watch(src + paths.scss, ['sass', 'useref']);
   gulp.watch(paths.appJs, ['script', 'lint']);
+  gulp.watch(paths.appHtml, ['template']);
 });
 
 //concatenates and minifies css files
@@ -137,7 +138,7 @@ gulp.task('cache:clear', function (callback) {
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: 'dist'
+      baseDir: './'
     },
   })
 });

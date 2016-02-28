@@ -3,17 +3,18 @@
 var angular = require('angular');
 require('./common/module');
 require('./services/module');
-//require('./components/product/module');
+require('./components/hotel/module');
 
 angular
   .module('myApp', [
     require('angular-ui-bootstrap'),
     require('angular-ui-router'),
     'myApp.services',
-    'myApp.common'
+    'myApp.common',
+    'myApp.hotel'
   ])
-  .config(/*@ngInject*/function($logProvider) {
-    $logProvider.debugEnabled(true);
+  .config(/*@ngInject*/function($locationProvider) {
+//    $locationProvider.html5Mode(true);
   });
 
 angular.element(document).ready(function() {
