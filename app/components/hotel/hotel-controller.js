@@ -4,15 +4,12 @@ var HotelController = (function() {
     /*@ngInject*/
   function HotelController(FirebaseService) {
       this.FirebaseService = FirebaseService;
-      this.data = FirebaseService.getDefaultData();
+      this.data = [];
+      this.loadDefaultData();
   }
 
-  HotelController.prototype.showDefaultData = function() {
-    
-    var mydata = [];
-    mydata = this.data;
-    return mydata;
-    
+  HotelController.prototype.loadDefaultData = function() {
+    this.data = this.FirebaseService.getDefaultData();
   }
   
   return HotelController;
