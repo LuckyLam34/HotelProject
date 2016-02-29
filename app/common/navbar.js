@@ -2,21 +2,32 @@
 
 var NavbarController = (function() {
   /*@ngInject*/
-  function NavbarController(HotelService, $rootScope) {
-    this.$rootScope = $rootScope;
+  function NavbarController(HotelService, FirebaseService,  $rootScope) {
     this.HotelService = HotelService;
-//    console.log(this);
+    this.FirebaseService = FirebaseService;
+    this.$rootScope = $rootScope;
+//    this.data = FirebaseService.getData();
+    
   }
-  
   NavbarController.prototype.hi = function() {
     return this.HotelService.hello;
+  }
+  
+  NavbarController.prototype.showData = function() {
+//    var dataTemp = [];
+//     
+//    for (var prop in this.data) {
+//      dataTemp.push(this.data[prop][att]);
+//    }
+    
+    return this.data;
   }
   
   return NavbarController;
 })();
 
 var navbar = function() {
-//  console.log(NavbarController);
+
   return {
     replace: true,
     restrict: 'AE',
@@ -27,4 +38,4 @@ var navbar = function() {
 }
 
 module.exports = navbar;
-//console.log(navbar);
+

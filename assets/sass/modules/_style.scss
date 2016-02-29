@@ -8,6 +8,7 @@ body {
   border-color: $logo-color;
   .navbar-nav > li > a {
     color: $navbar-link-color;
+    font-size: 150%;
   }
 }
 
@@ -23,6 +24,7 @@ section {
   &.bg {
     height: 500px;
     padding: 50px 0;
+    position: relative;
   }
 }
 
