@@ -52,6 +52,20 @@ var FirebaseService = (function() {
     return data;
   };
   
+  FirebaseService.prototype.getHotelInfo = function(id) {
+    var data = [];
+    var link = 'https://shining-fire-8539.firebaseio.com/hotels/' + id +'/hotel_information';
+    
+    var ref = new Firebase(link);
+    
+    ref.on('value', function(snapshot) {
+      data = snapshot.val();
+    });
+    
+    return data;
+    
+  }
+  
   FirebaseService.prototype.getRoomChoices = function(id) {
     var data = [];
     var tempData = [];

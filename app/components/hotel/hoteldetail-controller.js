@@ -43,6 +43,10 @@ var HotelDetailController = (function() {
     return this.FirebaseService.getAmentiesWhatAround(amentiesOrWhatAround, id);
   };
   
+  HotelDetailController.prototype.loadHotelInfo = function() {
+   return this.FirebaseService.getHotelInfo(this.$stateParams.id);
+  }
+  
   HotelDetailController.prototype.loadRoomChoices = function() {
     this.roomChoices = this.FirebaseService.getRoomChoices(this.$stateParams.id);
   };
