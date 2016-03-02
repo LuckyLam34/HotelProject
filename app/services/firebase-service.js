@@ -7,7 +7,7 @@ var FirebaseService = (function() {
   function FirebaseService($firebaseObject, $firebaseArray, $http, $q) {
     this.$firebaseObject = $firebaseObject;
     this.$firebaseArray = $firebaseArray;
-    this.link = 'https://shining-fire-8539.firebaseio.com/hotels/';
+    this.link = 'https://shining-fire-8539.firebaseio.com/myhotels/'; 
   }
   
   FirebaseService.prototype.getDefaultData = function() {
@@ -37,41 +37,33 @@ var FirebaseService = (function() {
     return this.$firebaseObject(ref);
   };
   
-  FirebaseService.prototype.getAmentiesWhatAround = function(amentiesOrWhatAround, id) {
-    //wrong spelling here *around
-    var data = [];
-    var type = (amentiesOrWhatAround === 'amenties' ? 'hotel_main_amenties' : 'hotel_what_arround');
-    var link = 'https://shining-fire-8539.firebaseio.com/hotels/' + id + '/hotel_overview/' + type;
-    var ref = new Firebase(link);
-
-    //using firebase javascript api
-    ref.on('value', function(snapshot) {
-      data = snapshot.val();
-    });
-    
-    return data;
-  };
-  
-  FirebaseService.prototype.getHotelInfo = function(id) {
-    var data = [];
-    var link = 'https://shining-fire-8539.firebaseio.com/hotels/' + id +'/hotel_information';
-    
-    var ref = new Firebase(link);
-    
-    ref.on('value', function(snapshot) {
-      data = snapshot.val();
-    });
-    
-    return data;
-    
-  }
-  
   //demo
   FirebaseService.prototype.setDemo = function() {
+    var myId = '';
     var ref = new Firebase('https://sunshine-333.firebaseio.com/users');
 
-    var data= this.$firebaseArray(ref);
+    var data = this.$firebaseArray(ref);
+    data.$add({
+        FUCKKKK: {
+          friends: { brinchen: true },
+          name: {
+						name1: {
+									though1:"great",
+									though2:"good"
+								}
+					},
+          
+          widgets: { one: true, three: true }
+        }}).then(function(ref) {
+          var id = ref.key();
+          console.log("added record with id " + id);
+          myId = id;
+          console.log(data.$indexFor(id)); // returns location in the array
+        });
     
+        console.log('my id:', myId);
+        
+        return myId;
 //    var newRef = ref.push();
 //    newRef.set({
 //        FUCK: {
@@ -88,26 +80,6 @@ var FirebaseService = (function() {
 //    var postID = newRef.key();
 //    return postID;  
   }
-  
-  FirebaseService.prototype.getRoomChoices = function(id) {
-    var data = [];
-    var tempData = [];
-    var link = 'https://shining-fire-8539.firebaseio.com/hotels/' + id + '/hotel_room_choices';
-    var ref = new Firebase(link);
-    tempData = this.$firebaseArray(ref);
-    
-    tempData.$loaded().then(function() {
-      for(var i = 0;i < tempData.length; i++) {
-        if (tempData[i]) {
-          data.push(tempData[i]);
-        }
-      }
-    }).catch(function(error) {
-      console.log('Error:', error);
-    });
-    
-    return data;
-  };
   
   return FirebaseService;
 })();
