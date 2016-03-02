@@ -6,7 +6,9 @@
     <p class="font-arial">{{hotelDetail.detailData.hotel_address}}</p>
   </div>
   <img class="img-responsive margin-center full-width border-radius" ng-src="{{hotelDetail.detailData.hotel_images}}" alt="{{hotelDetail.detailData.hotel_name}}'s picture">
-  
+
+
+
 <!--  Hotel overview-->
   <section>
     <h2>Overview</h2> 
@@ -21,7 +23,7 @@
             </thead>
             <tbody>
               <tr ng-repeat="a in hotelDetail.loadAmentiesWhatAround('amenties', hotelDetail.detailData.$id) track by $index">
-                <td ng-hide="{{a == null}}"><span class="glyphicon glyphicon-ok"></span> {{a}}</td>
+                <td ng-if="a != null"><span class="glyphicon glyphicon-ok"></span> {{a}}</td>
               </tr>
             </tbody>
           </table>
@@ -90,28 +92,56 @@
   <section class="hotel-info">
     <h2>Hotel information</h2>
     <div class="row font-arial">
-      <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="col-md-6 col-sm-6hidden-xs">
         <img class="img-responsive border-radius margin-center" src="Resources/check.jpg" alt="checking picture">
       </div>
       <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="border border-radius">
-<!--          {{hotelDetail.loadHotelInfo().arriving_leaving}}-->
+          
 <!--
           <ul class="list">
-            <li ng-repeat="(key, value) in hotelDetail.loadHotelInfo()">
+            <li ng-repeat="(key, value) in hotelDetail.loadHotelInfo() track by $index">
               <h4><span class="glyphicon glyphicon-chevron-right"></span> {{key | labelCase }}</h4>
               <ul>
-                <li ng-repeat="data in value">
+                <li ng-repeat="data in value track by $index">
                   {{data}}
                 </li>
               </ul>
             </li>
           </ul>
 -->
+          
+          <ul class="list">
+            <li>
+              <h4><span class="glyphicon glyphicon-chevron-right"></span> Arriving/leaving</h4>
+              <ul>
+                <li ng-repeat="data in hotelDetail.loadHotelInfo().arriving_leaving">
+                  {{data}}
+                </li>
+              </ul>
+            </li>
+            <li>
+              <h4><span class="glyphicon glyphicon-chevron-right"></span> Hotel size</h4>
+              <ul>
+                <li ng-repeat="data in hotelDetail.loadHotelInfo().hotel_size">
+                  {{data}}
+                </li>
+              </ul>
+            </li>
+            <li>
+              <h4><span class="glyphicon glyphicon-chevron-right"></span> Hotel size</h4>
+              <ul>
+                <li ng-repeat="data in hotelDetail.loadHotelInfo().required_at_checkin">
+                  {{data}}
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 </div>
 
- 
+
+{{hotelDetail.dataDemo | json}}

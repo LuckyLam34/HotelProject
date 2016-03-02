@@ -66,6 +66,27 @@ var FirebaseService = (function() {
     
   }
   
+  //demo
+  FirebaseService.prototype.getDemo = function() {
+    var hotelRef = new Firebase('https://sunshine-333.firebaseio.com/users');
+//    var tempData = [];
+//    var data = [];
+//    var query = hotelRef.limitToLast(2);
+//    tempData = this.$firebaseArray(query);
+//    
+//    tempData.$loaded().then(function() {
+//      for(var i = 0;i < tempData.length; i++) {
+//        if (tempData[i]) {
+//          data.push(tempData[i]);
+//        }
+//      }
+//    }).catch(function(error) {
+//      console.log('Error:', error);
+//    });
+    
+    return this.$firebaseArray(hotelRef);
+  }
+  
   FirebaseService.prototype.getRoomChoices = function(id) {
     var data = [];
     var tempData = [];

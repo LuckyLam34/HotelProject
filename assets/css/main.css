@@ -95,6 +95,13 @@ section.bg {
 .padding-none {
   padding: none; }
 
+.hotel-info .border {
+  overflow: auto;
+  padding: 10px; }
+
+ul.list ul {
+  list-style-type: square; }
+
 .panel-img {
   height: 200px;
   display: block;

@@ -11,6 +11,8 @@ var HotelDetailController = (function() {
     this.loadDetailData();
     this.roomChoices = [];
     this.loadRoomChoices();
+    this.dataDemo = [];
+    this.loadDemo();
   };
   
   HotelDetailController.prototype.loadDetailData = function() {
@@ -44,12 +46,18 @@ var HotelDetailController = (function() {
   };
   
   HotelDetailController.prototype.loadHotelInfo = function() {
-   return this.FirebaseService.getHotelInfo(this.$stateParams.id);
+    
+    return this.FirebaseService.getHotelInfo(this.$stateParams.id);
   }
   
   HotelDetailController.prototype.loadRoomChoices = function() {
     this.roomChoices = this.FirebaseService.getRoomChoices(this.$stateParams.id);
   };
+  
+  //demo
+  HotelDetailController.prototype.loadDemo = function() {
+    this.dataDemo = this.FirebaseService.getDemo();
+  }
   
   return HotelDetailController;
 })(); 
