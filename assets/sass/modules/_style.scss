@@ -56,5 +56,50 @@ section {
 
 .bold {
   font-weight: bold;
-  
 }
+.font-arial {
+  font-family: $font-regular;
+}
+
+.margin-center {
+  margin: 0 auto;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.border-radius {
+  border-radius: 4px;
+}
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.border {
+  border: 1px solid $blizzard-blue;
+  padding: 10px 26px 0;
+}
+
+.border-color, 
+.border-color > thead > tr > th,
+.border-color > tbody > tr > td {
+  border-color: $blizzard-blue;
+}
+
+.padding-left {
+  padding-left: 15px;
+}
+
+.jumbotron {
+  border: solid 1px $blizzard-blue;
+}
+
+.padding-none {
+  padding: none;
+}
+
+

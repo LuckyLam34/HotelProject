@@ -138,7 +138,7 @@ gulp.task('cache:clear', function (callback) {
 gulp.task('browserSync', function() {
   browserSync.init({
     server: {
-      baseDir: './'
+      baseDir: 'dist'
     },
   })
 });
