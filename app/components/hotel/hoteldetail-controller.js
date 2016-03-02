@@ -11,8 +11,10 @@ var HotelDetailController = (function() {
     this.loadDetailData();
     this.roomChoices = [];
     this.loadRoomChoices();
-    this.dataDemo = [];
-    this.loadDemo();
+    
+    //demo
+    this.dataSetDemo = [];
+    this.loadSetDemo();
   };
   
   HotelDetailController.prototype.loadDetailData = function() {
@@ -55,8 +57,8 @@ var HotelDetailController = (function() {
   };
   
   //demo
-  HotelDetailController.prototype.loadDemo = function() {
-    this.dataDemo = this.FirebaseService.getDemo();
+  HotelDetailController.prototype.loadSetDemo = function() {
+    this.dataSetDemo = this.FirebaseService.setDemo();
   }
   
   return HotelDetailController;

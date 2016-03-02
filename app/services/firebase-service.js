@@ -67,24 +67,26 @@ var FirebaseService = (function() {
   }
   
   //demo
-  FirebaseService.prototype.getDemo = function() {
-    var hotelRef = new Firebase('https://sunshine-333.firebaseio.com/users');
-//    var tempData = [];
-//    var data = [];
-//    var query = hotelRef.limitToLast(2);
-//    tempData = this.$firebaseArray(query);
-//    
-//    tempData.$loaded().then(function() {
-//      for(var i = 0;i < tempData.length; i++) {
-//        if (tempData[i]) {
-//          data.push(tempData[i]);
-//        }
-//      }
-//    }).catch(function(error) {
-//      console.log('Error:', error);
-//    });
+  FirebaseService.prototype.setDemo = function() {
+    var ref = new Firebase('https://sunshine-333.firebaseio.com/users');
+
+    var data= this.$firebaseArray(ref);
     
-    return this.$firebaseArray(hotelRef);
+//    var newRef = ref.push();
+//    newRef.set({
+//        FUCK: {
+//          friends: { brinchen: true },
+//          name: {
+//						name1: {
+//									though1:"great",
+//									though2:"good"
+//								}
+//					},
+//          
+//          widgets: { one: true, three: true }
+//        }});
+//    var postID = newRef.key();
+//    return postID;  
   }
   
   FirebaseService.prototype.getRoomChoices = function(id) {
