@@ -43,7 +43,7 @@ var FirebaseService = (function() {
           data.push({
             name: tempData[i].hotel_name,
             id: tempData[i].$id
-          });
+          }); 
 //          console.log(data);
         }
       }
