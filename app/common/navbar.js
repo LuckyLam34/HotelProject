@@ -2,19 +2,8 @@
 
 var NavbarController = (function() {
   /*@ngInject*/
-  function NavbarController(FirebaseService,  $rootScope) {
-    this.FirebaseService = FirebaseService;
-    this.$rootScope = $rootScope;
-//    this.data = FirebaseService.getData();
-    
-  }
-  NavbarController.prototype.hi = function() {
-    
-  }
-  
-  NavbarController.prototype.showData = function() {
-
-    return this.data;
+  function NavbarController($rootScope) {
+    this.$rootScope = $rootScope;    
   }
   
   return NavbarController;
