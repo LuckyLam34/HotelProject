@@ -4,7 +4,7 @@ require('angularfire');
 
 var FirebaseService = (function() {
   /*@ngInject*/
-  function FirebaseService($firebaseObject, $firebaseArray, $http, $q) {
+  function FirebaseService($firebaseObject, $firebaseArray) {
     this.$firebaseObject = $firebaseObject;
     this.$firebaseArray = $firebaseArray;
     this.link = 'https://shining-fire-8539.firebaseio.com/myhotels/'; 
@@ -29,6 +29,31 @@ var FirebaseService = (function() {
     
     return data;
   };
+  
+  FirebaseService.prototype.getAllHotelNames = function() {
+    
+    var ref = new Firebase(this.link);
+    var tempData = [];
+    var data = [];
+    tempData = this.$firebaseArray(ref);
+    
+    tempData.$loaded().then(function() {
+      for(var i = 0; i < tempData.length; i++) {
+        if (tempData[i].hotel_name) {
+          data.push({
+            name: tempData[i].hotel_name,
+            id: tempData[i].$id
+          });
+//          console.log(data);
+        }
+      }
+    }).catch(function(error) {
+      console.log('Error:', error);
+    });
+    
+    return data;
+    
+  }
   
   FirebaseService.prototype.getDetailData = function(id) {
     var link = this.link + id;

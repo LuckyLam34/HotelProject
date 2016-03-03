@@ -8,6 +8,7 @@ require('./filters/module');
 
 angular
   .module('myApp', [
+    require('angular-animate'),
     require('angular-ui-bootstrap'),
     require('angular-ui-router'),
     'myApp.services',

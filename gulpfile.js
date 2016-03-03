@@ -104,6 +104,7 @@ gulp.task('framework', function() {
     debug: false
   })
   .require('angular')
+  .require('angular-animate')
   .require('angular-ui-bootstrap')
   .require('angular-ui-router')
   .require('firebase')
@@ -119,6 +120,7 @@ gulp.task('script', function() {
     debug: true
   })
   .external('angular')
+  .external('angular-animate')
   .external('angular-ui-bootstrap')
   .external('angular-ui-router')
   .external('firebase')

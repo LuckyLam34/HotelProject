@@ -17,7 +17,7 @@ var navbar = function() {
     templateUrl: 'app/common/navbar.html',
     controller: NavbarController,
     controllerAs: 'navbar'
-  }
+  };
 }
 
 module.exports = navbar;
