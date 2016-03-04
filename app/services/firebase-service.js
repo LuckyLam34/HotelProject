@@ -114,7 +114,7 @@ var FirebaseService = (function() {
         return myId;
 //    var newRef = ref.push();
 //    newRef.set({
-//        FUCK: {
+//        a: {
 //          friends: { brinchen: true },
 //          name: {
 //						name1: {
