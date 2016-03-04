@@ -4,10 +4,12 @@ require('angularfire');
 
 var FirebaseService = (function() {
   /*@ngInject*/
-  function FirebaseService($firebaseObject, $firebaseArray) {
+  function FirebaseService($firebaseObject, $firebaseArray, $firebaseAuth) {
     this.$firebaseObject = $firebaseObject;
     this.$firebaseArray = $firebaseArray;
+    this.$firebaseAuth = $firebaseAuth;
     this.link = 'https://shining-fire-8539.firebaseio.com/myhotels/'; 
+    this.originalLink = 'https://shining-fire-8539.firebaseio.com';
   }
   
   FirebaseService.prototype.getDefaultData = function() {
@@ -60,6 +62,27 @@ var FirebaseService = (function() {
     var ref = new Firebase(link);
     
     return this.$firebaseObject(ref);
+  };
+  
+  FirebaseService.prototype.auth = function() {
+    console.log('hey');
+    var ref = new Firebase(this.originalLink);
+    
+    console.log(this.$firebaseAuth(ref));
+    return this.$firebaseAuth(ref);
+//    return ref.authWithOAuthPopup('google', function(error, authData) {
+//      if (error) {
+//        console.log('Login Failed', error);
+//      } else {
+//        console.log('Authenticated successfully with payload:', authData);
+//        
+//      }
+//    }, {
+//      remember: 'sessionOnly',
+//      scope: 'email'
+//    });
+    
+    
   };
   
   //demo

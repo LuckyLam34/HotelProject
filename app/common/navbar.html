@@ -22,13 +22,23 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li>
+        <li ng-hide="navbar.authData">
           <a href="#">Register</a>
         </li>
-        <li>
-          <a href="#">Log in</a>
+        <li ng-hide="navbar.authData">
+          <a href="" ng-click="navbar.auth.$authWithOAuthPopup('google')">Log in with Google</a>
+        </li>
+        <li ng-show="navbar.authData">
+<!--          <img ng-src="{{navbar.authData.google.cachedUserProfile.picture}}" alt="user's profile picture">-->
+          <a href="">
+            Hello {{navbar.authData.google.displayName}}
+          </a>
+        </li>
+        <li ng-show="navbar.authData">
+          <a href="" ng-click="navbar.auth.$unauth()">Log out</a>
         </li>
       </ul>
     </div>
   </div>
+  
 </nav>
