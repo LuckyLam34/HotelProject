@@ -1,16 +1,14 @@
-
-
-  <div class="jumbo-toggle">
-    <div class="jumbotron custom-jumbotron border-radius">
-      <h1>{{hotelDetail.detailData.hotel_name}}</h1>
-      <p class="font-arial">{{hotelDetail.detailData.hotel_address}}</p>
-    </div>
-    <img class="img-responsive margin-center full-width border-radius" ng-src="{{hotelDetail.detailData.hotel_images}}" alt="{{hotelDetail.detailData.hotel_name}}'s picture">
+<div class="jumbo-toggle">
+  <div class="jumbotron custom-jumbotron border-radius">
+    <h1>{{hotelDetail.detailData.hotel_name}}</h1>
+    <p class="font-arial">{{hotelDetail.detailData.hotel_address}}</p>
   </div>
-   <div class="my-jumbotron">
-     <img class="img-responsive" ng-src="{{hotelDetail.detailData.hotel_images}}" alt="{{hotelDetail.detailData.hotel_name}}'s picture">
-     <h2><span>{{hotelDetail.detailData.hotel_name}}</span> <br> <span class="small">{{hotelDetail.detailData.hotel_address}}</span></h2>
-   </div>
+  <img class="img-responsive margin-center full-width border-radius" ng-src="{{hotelDetail.detailData.hotel_images}}" alt="{{hotelDetail.detailData.hotel_name}}'s picture">
+</div>
+<div class="my-jumbotron">
+ <img class="img-responsive" ng-src="{{hotelDetail.detailData.hotel_images}}" alt="{{hotelDetail.detailData.hotel_name}}'s picture">
+ <h2><span>{{hotelDetail.detailData.hotel_name}}</span> <br> <span class="small">{{hotelDetail.detailData.hotel_address}}</span></h2>
+</div>
 <div class="container">
 <!--  Hotel overview-->
   <section>
@@ -85,7 +83,7 @@
     <h2>Room choices</h2>
     <div class="row font-arial">
       <div class="col-md-12">
-        <div class="table-responsive">
+        <div class="table-responsive border-color"> 
           <table class="table font-arial table-bordered border-color border-radius">
           <thead>
             <tr>
@@ -122,7 +120,14 @@
       </div>
     </div>
   </section>
-  <searchbar></searchbar>
+  <searchbar></searchbar> 
+  
+  <section>
+    <h2>Most recent hotels</h2>
+    <!--  latest hotels-->
+      <hotel></hotel>
+    <!--  /latest hotels-->
+  </section>
 </div>
 
 

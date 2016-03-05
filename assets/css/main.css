@@ -167,3 +167,15 @@ ul.list ul {
   height: 200px;
   display: block;
   padding: 0; }
+
+section.compare img {
+  width: 100%;
+  display: block;
+  height: auto; }
+
+section.compare table {
+  margin-top: 54px; }
+
+section.compare td:first-child {
+  font-weight: bold;
+  font-size: 16px; }

@@ -16,8 +16,7 @@ var FirebaseService = (function() {
     var hotelRef = new Firebase(this.link);
     var tempData = [];
     var data = [];
-    var query = hotelRef.limitToLast(6);
-    tempData = this.$firebaseArray(query);
+    tempData = this.$firebaseArray(hotelRef);
     
     tempData.$loaded().then(function() {
       for(var i = 0;i < tempData.length; i++) {
@@ -63,11 +62,31 @@ var FirebaseService = (function() {
   };
   
   FirebaseService.prototype.auth = function() {
-    console.log('hey');
     var ref = new Firebase(this.originalLink);
     
     return this.$firebaseAuth(ref);
   };
+  
+  FirebaseService.prototype.getLatestHotels = function(total) {
+    var hotelRef = new Firebase(this.link);
+    var tempData = [];
+    var data = [];
+    var query = hotelRef.limitToLast(total);
+    tempData = this.$firebaseArray(query);
+    
+    tempData.$loaded().then(function() {
+      for(var i = 0;i < tempData.length; i++) {
+        if (tempData[i]) {
+          data.push(tempData[i]);
+          console.log(data);
+        }
+      }
+    }).catch(function(error) {
+      console.log('Error:', error);
+    });
+  
+    return data;
+  }
   
   return FirebaseService;
 })();

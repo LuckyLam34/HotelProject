@@ -35,6 +35,14 @@ angular
         templateUrl: 'app/components/hotel/hotel-detail.html',
         controller: 'HotelDetailController',
         controllerAs: 'hotelDetail'
-      });
+      })
+      .state({
+        name: 'compare',
+        url: '/compare/:id1/:id2',
+        templateUrl: 'app/components/hotel/hotel-compare.html',
+        controller: 'HotelDetailController',
+        controllerAs: 'hotelDetail'
+        
+      })
     $urlRouterProvider.otherwise('/');
   });

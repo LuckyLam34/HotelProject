@@ -1,0 +1,169 @@
+<div class="container">
+ <section class="compare">
+  <div class="table-responsive border-color">
+    <table class="table font-arial table-bordered border-color border-radius">
+      <tr>
+        <td>
+          
+        </td>
+        <td>
+          <h3>{{hotelDetail.data.hotel1.hotel_name}}</h3>
+        </td>
+        <td>
+          <h3>{{hotelDetail.data.hotel2.hotel_name}}</h3>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Image
+        </td>
+        <td>
+          <img class="img-responsive" ng-src="{{hotelDetail.data.hotel1.hotel_images}}" alt="image1">
+        </td>
+        <td>
+           <img class="img-responsive" ng-src="{{hotelDetail.data.hotel2.hotel_images}}" alt="image2">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Address
+        </td>
+        <td>
+          {{hotelDetail.data.hotel1.hotel_address}}
+        </td>
+        <td>
+          {{hotelDetail.data.hotel2.hotel_address}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          City
+        </td>
+        <td>
+          {{hotelDetail.data.hotel1.hotel_city}}
+        </td>
+        <td>
+          {{hotelDetail.data.hotel2.hotel_city}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Overview
+        </td>
+        <td>
+          <ul ng-repeat="(key,value) in hotelDetail.data.hotel1.hotel_overview track by $index">
+            <li>
+              {{key | labelCase}}
+              <ul ng-repeat="(key1,value1) in value track by $index">
+                <li>{{value1}}</li>
+              </ul> 
+            </li>
+          </ul>
+        </td>
+        <td>
+          <ul ng-repeat="(key,value) in hotelDetail.data.hotel2.hotel_overview track by $index">
+            <li>
+              {{key | labelCase}}
+              <ul ng-repeat="(key1,value1) in value track by $index">
+                <li>{{value1}}</li>
+              </ul> 
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Info
+        </td>
+        <td>
+          <ul ng-repeat="(key,value) in hotelDetail.data.hotel1.hotel_information track by $index">
+            <li>
+              {{key | labelCase}}
+              <ul ng-repeat="(key1,value1) in value track by $index">
+                <li>{{value1}}</li>
+              </ul> 
+            </li>
+          </ul>
+        </td>
+        <td>
+          <ul ng-repeat="(key,value) in hotelDetail.data.hotel2.hotel_information track by $index">
+            <li>
+              {{key | labelCase}}
+              <ul ng-repeat="(key1,value1) in value track by $index">
+                <li>{{value1}}</li>
+              </ul> 
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td><div class="btn btn-primary">Book</div></td>
+        <td><div class="btn btn-primary">Book</div></td>
+      </tr>
+<!--
+      <tr>
+        <td>
+          Room choices
+        </td>
+        <td>
+         <ul ng-repeat="(key,value) in hotelDetail.data.hotel1.hotel_room_choices track by $index">
+           <li ng-repeat="(key1,value1) in value track by $index">
+             {{key1}} {{value1}}
+           </li>
+         </ul>
+        </td>
+        <td>
+          
+        </td>
+      </tr>
+-->
+    </table>
+  </div>
+<!--  <pre>{{hotelDetail.data | json}}</pre>-->
+<!--
+  <table class="table table-hover">
+    <tr>
+      <td>
+        <table class="table table-bordered">
+          <tr>
+            <td>aaaaaaaa</td>
+          </tr>
+          <tr>
+            <td>bbbbbbb</td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <table class="table table-bordered">
+          <tr ng-repeat="(key,value) in hotelDetail.data.hotel1">
+            <td>{{key}}</td>
+          </tr>
+          <tr>
+            <td>bbbbbbb</td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <table class="table table-bordered">
+          <tr>
+            <td>aaaaaaaa</td>
+          </tr>
+          <tr>
+            <td>bbbbbbb</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+-->
+  </section>
+  <searchbar></searchbar>
+  
+<section>
+  <h3>Most recent hotels</h3>
+  <!--  latest hotels-->
+    <hotel></hotel>
+  <!--  /latest hotels-->
+</section>
+</div>
