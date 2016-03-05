@@ -1,15 +1,17 @@
 
-<div class="container">
 
-    <div class="jumbotron">
-    <h1>{{hotelDetail.detailData.hotel_name}}</h1>
-    <p class="font-arial">{{hotelDetail.detailData.hotel_address}}</p>
- 
+  <div class="jumbo-toggle">
+    <div class="jumbotron custom-jumbotron border-radius">
+      <h1>{{hotelDetail.detailData.hotel_name}}</h1>
+      <p class="font-arial">{{hotelDetail.detailData.hotel_address}}</p>
+    </div>
+    <img class="img-responsive margin-center full-width border-radius" ng-src="{{hotelDetail.detailData.hotel_images}}" alt="{{hotelDetail.detailData.hotel_name}}'s picture">
   </div>
-  <img class="img-responsive margin-center full-width border-radius" ng-src="{{hotelDetail.detailData.hotel_images}}" alt="{{hotelDetail.detailData.hotel_name}}'s picture">
-
-
-
+   <div class="my-jumbotron">
+     <img class="img-responsive" ng-src="{{hotelDetail.detailData.hotel_images}}" alt="{{hotelDetail.detailData.hotel_name}}'s picture">
+     <h2><span>{{hotelDetail.detailData.hotel_name}}</span> <br> <span class="small">{{hotelDetail.detailData.hotel_address}}</span></h2>
+   </div>
+<div class="container">
 <!--  Hotel overview-->
   <section>
     <h2>Overview</h2> 
@@ -53,46 +55,6 @@
     
   </section>
   
-  <!--   Room choices-->
-  <section>
-    <h2>Room choices</h2>
-    <div class="row font-arial">
-      <div class="col-md-12">
-        <table class="table font-arial table-bordered table-responsive border-color border-radius">
-          <thead>
-            <tr>
-              <th class="text-center">Room type</th>
-              <th class="text-center">Room max</th>
-              <th class="text-center">Room information</th>
-              <th class="text-center">Room price</th>
-              <th class="text-center">Room available</th>
-              <th class="text-center">Book</th>
-             
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="(key, value) in hotelDetail.detailData.hotel_room_choices track by $index">
-              <td>{{value.room_type}}</td>
-              <td>{{value.room_max}}</td>
-              <td>
-                <table class="">
-                  <tr ng-repeat="(key1, value1) in value.room_information">
-                    <td>{{key1 | labelCase}}</td>
-
-                    <td class="padding-left"><span class="glyphicon glyphicon-arrow-right"></span> {{value1}}</td>
-                  </tr>
-                </table>
-              </td>
-              <td>{{value.room_average_nightly_price | dollarSign}}</td>
-              <td>{{value.room_available}}</td>
-              <td><div class="btn btn-success">Book</div></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-  
   <!--  Hotel information-->
   <section class="hotel-info">
     <h2>Hotel information</h2>
@@ -114,6 +76,49 @@
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+  </section>
+  
+  <!--   Room choices-->
+  <section>
+    <h2>Room choices</h2>
+    <div class="row font-arial">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table class="table font-arial table-bordered border-color border-radius">
+          <thead>
+            <tr>
+              <th class="text-center">Book</th>
+              <th class="text-center">Room type</th>
+              <th class="text-center">Room max</th>
+              <th class="text-center">Room information</th>
+              <th class="text-center">Room price</th>
+              <th class="text-center">Room available</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="(key, value) in hotelDetail.detailData.hotel_room_choices track by $index">
+              <td><div class="btn btn-success">Book</div></td>
+              <td>{{value.room_type}}</td>
+              <td>{{value.room_max}}</td>
+              <td>
+                <table class="">
+                  <tr ng-repeat="(key1, value1) in value.room_information">
+                    <td>{{key1 | labelCase}}</td>
+
+                    <td class="padding-left"><span class="glyphicon glyphicon-arrow-right"></span> {{value1}}</td>
+                  </tr>
+                </table>
+              </td>
+              <td>{{value.room_average_nightly_price | dollarSign}}</td>
+              <td>{{value.room_available}}</td>
+            </tr>
+          </tbody>
+         </table>
+        </div>
+      
       </div>
     </div>
   </section>

@@ -1,11 +1,11 @@
 .mybtn {
   width: 75px;
-  background-color: #95EAEB; }
+  background-color: #1565C0; }
   .mybtn > i {
     color: #ffffff; }
 
 .cool {
-  background-color: #95EAEB;
+  background-color: #1565C0;
   height: 300px;
   border-radius: 4px;
   opacity: 0.5;
@@ -25,10 +25,10 @@ body {
   background-color: #f2f2f2; }
 
 .navbar-inverse {
-  background-color: #95EAEB;
-  border-color: #95EAEB; }
+  background-color: #1565C0;
+  border-color: #1565C0; }
   .navbar-inverse .navbar-nav > li > a {
-    color: #ffffff;
+    color: #E3F2FD;
     font-size: 150%; }
 
 .navbar {
@@ -47,7 +47,7 @@ section.bg {
   height: 50px; }
 
 .the-bg, .bg-1, .bg-2, .bg-3 {
-  color: #ffffff; }
+  color: #E3F2FD; }
 
 .bg-1 {
   background: url("../Resources/resort.jpg") no-repeat center center fixed;
@@ -82,19 +82,24 @@ section.bg {
   padding: 0; }
 
 .border {
-  border: 1px solid #95EAEB;
+  border: 1px solid #1e88e5;
   padding: 10px 26px 0; }
 
 .border-color,
 .border-color > thead > tr > th,
 .border-color > tbody > tr > td {
-  border-color: #95EAEB; }
+  border-color: #1e88e5; }
 
 .padding-left {
   padding-left: 15px; }
 
-.jumbotron {
-  border: solid 1px #95EAEB; }
+.custom-jumbotron {
+  border: solid 1px #1e88e5;
+  margin-top: 30px;
+  padding-left: 10px; }
+
+.jumbo-toggle {
+  display: none; }
 
 .padding-none {
   padding: none; }
@@ -105,6 +110,58 @@ section.bg {
 
 ul.list ul {
   list-style-type: square; }
+
+.my-jumbotron {
+  position: relative; }
+  .my-jumbotron h2 {
+    position: absolute;
+    bottom: 250px;
+    left: 0;
+    width: 60%; }
+    .my-jumbotron h2 span {
+      letter-spacing: -1px;
+      line-height: 170%;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px;
+      color: #E3F2FD;
+      font-size: 140%; }
+  .my-jumbotron img {
+    width: 100%; }
+
+.opacity-bg {
+  border: 1px solid #000000;
+  width: 60%;
+  background-color: green;
+  height: 200px;
+  position: absolute;
+  top: 20px; }
+
+.relative {
+  position: relative;
+  z-index: -1; }
+
+.small {
+  font-size: 77% !important;
+  line-height: 203% !important; }
+
+@media only screen and (max-width: 740px) {
+  .my-jumbotron h2 {
+    bottom: 100px; } }
+
+@media only screen and (max-width: 590px) {
+  .my-jumbotron h2 {
+    bottom: 100px; }
+    .my-jumbotron h2 span {
+      font-size: 115%; }
+    .my-jumbotron h2 .small {
+      font-size: 43% !important;
+      line-height: 203% !important; } }
+
+@media only screen and (max-width: 510px) {
+  .my-jumbotron {
+    display: none; }
+  .jumbo-toggle {
+    display: block; } }
 
 .panel-img {
   height: 200px;
