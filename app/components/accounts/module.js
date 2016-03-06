@@ -13,6 +13,7 @@ angular
         url: '/accounts/notAuthorized',
         templateUrl: 'app/components/accounts/not-authorized.html',
         controller: 'AuthoController',
-        controllerAs: 'autho'
+        controllerAs: 'autho',
+        data: { isAdmin: false }
       });
   });

@@ -31,12 +31,13 @@ angular
         url: '/',
         templateUrl: 'app/components/hotel/hotel-main.html',
         controller: 'HotelController',
-        controllerAs: 'hotel'
+        controllerAs: 'hotel',
+        data: { isAdmin: false }
       })
       .state({
         name: 'hotelDetail',
         url: '/hotels/:id',
-        
+        data: { isAdmin: false },
         templateUrl: 'app/components/hotel/hotel-detail.html',
         controller: 'HotelDetailController',
         controllerAs: 'hotelDetail'
@@ -46,14 +47,16 @@ angular
         url: '/compare/:id1/:id2',
         templateUrl: 'app/components/hotel/hotel-compare.html',
         controller: 'HotelDetailController',
-        controllerAs: 'hotelDetail'
+        controllerAs: 'hotelDetail',
+        data: { isAdmin: false }
       })
       .state({
         name: 'dashboard',
         url: '/dashboard/admin',
         templateUrl: 'app/components/hotel/dashboard.html',
         controller: 'DashboardController',
-        controllerAs: 'dashboard'
+        controllerAs: 'dashboard',
+        data: { isAdmin: true }
       });
     $urlRouterProvider.otherwise('/');
   });

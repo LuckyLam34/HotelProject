@@ -19,8 +19,29 @@ angular
     'myApp.accounts'
   ])
  .config(/*@ngInject*/function($compileProvider) {
-//    $locationProvider.html5Mode(true);
     $compileProvider.debugInfoEnabled(false);
+  })
+  .run(/*@ngInject*/function($rootScope, FirebaseService, $state) {
+  
+    var authenticated;
+    
+//    FirebaseService.auth().$onAuth(function(authData) {
+//      authenticated = true;
+//    });
+//  
+    $rootScope.$on('isAuthenticated', function(event, data) {
+      console.log(data);
+      authenticated = data;
+    });
+    
+    $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
+      if (toState.data.isAdmin === true && !authenticated) {
+        alert('not admin');
+        event.preventDefault();
+        $state.go('notAuthorized');
+        return false;
+      }
+    });
   });
 
 angular.element(document).ready(function() {
