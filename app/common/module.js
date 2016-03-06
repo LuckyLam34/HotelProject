@@ -9,5 +9,5 @@ angular
   .module('myApp.common', [])
   .directive('navbar', navbar)
   .directive('searchbar', searchbar)
-  .directive('hotel', hotel);
+  .directive('latestHotel', hotel);
 

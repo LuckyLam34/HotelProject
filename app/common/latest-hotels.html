@@ -6,7 +6,7 @@
          <img class="img-responsive" ng-src='{{h.hotel_images}}' alt="an image here">
       </div>
       <div class="panel-footer text-right font-arial">
-        <a class="btn btn-primary" ng-hide="latestHotels.$state.current.name === 'compare'" ui-sref="compare({id1:latestHotels.$stateParams.id,id2: h.$id})">Compare</a>
+        <a class="btn btn-primary" ng-hide="latestHotels.$state.current.name === 'compare' || latestHotels.$state.current.name === 'hotel'" ui-sref="compare({id1:latestHotels.$stateParams.id,id2: h.$id})">Compare</a>
         <a class="btn btn-default" ui-sref="hotelDetail({id: h.$id})">More... </a>
       </div>
     </div>

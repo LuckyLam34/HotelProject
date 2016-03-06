@@ -2,26 +2,26 @@
 
 var NavbarController = (function() {
   /*@ngInject*/
-  function NavbarController($rootScope, FirebaseService) {
-    this.$rootScope = $rootScope;    
+  function NavbarController(FirebaseService, $state) {
+    this.$state = $state;
     this.FirebaseService = FirebaseService;
     this.auth = this.FirebaseService.auth();
     this.authData;
     var self = this;
     this.auth.$onAuth(function(authData) {
       self.authData = authData;
+      self.reload();
     });
   }
-  
-//  NavbarController.prototype.onLogin = function() {
-//    return this.auth.$onAuth(function(authData) {
-//      this.authData = authData;
-//    });
-//  }
   
   NavbarController.prototype.hi = function() {
     alert('hi');
   }
+  
+  NavbarController.prototype.reload = function() {
+      this.$state.reload();
+  }
+  
   return NavbarController;
 })();
 

@@ -5,6 +5,7 @@ require('./common/module');
 require('./services/module');
 require('./components/hotel/module');
 require('./filters/module');
+require('./components/accounts/module');
 
 angular
   .module('myApp', [
@@ -14,9 +15,10 @@ angular
     'myApp.services',
     'myApp.common',
     'myApp.hotel',
-    'myApp.filters'
+    'myApp.filters',
+    'myApp.accounts'
   ])
-  .config(/*@ngInject*/function($compileProvider) {
+ .config(/*@ngInject*/function($compileProvider) {
 //    $locationProvider.html5Mode(true);
     $compileProvider.debugInfoEnabled(false);
   });

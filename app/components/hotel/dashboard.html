@@ -1,0 +1,24 @@
+<div class="container">
+  <section class="admin-dashboard">
+    <div class="row">
+      <div class="col-sm-3">
+          <ul class="nav nav-tabs nav-stacked nav-pills" role="tablist">
+              <li ng-class="{'active': dashboard.viewTab === 'tab1'}">
+                  <a class="btn-lg" ng-click="dashboard.changeTab('tab1')" href="">Manage hotels</a>
+              </li>
+              <li ng-class="{'active': dashboard.viewTab === 'tab2'}">
+                  <a class="btn-lg" ng-click="dashboard.changeTab('tab2')" href="">Manage booking</a>
+              </li>
+          </ul>
+      </div>
+      <div class="col-sm-9 border-color border-radius border font-arial">
+          <div class="tab-content" ng-hide="dashboard.viewTab !== 'tab1'">
+            Manage hotels
+          </div>
+          <div class="tab-content" ng-show="dashboard.viewTab === 'tab2'">
+            Manage booking
+          </div>
+      </div>
+    </div>
+  </section>
+</div>

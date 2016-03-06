@@ -78,7 +78,6 @@ var FirebaseService = (function() {
       for(var i = 0;i < tempData.length; i++) {
         if (tempData[i]) {
           data.push(tempData[i]);
-          console.log(data);
         }
       }
     }).catch(function(error) {

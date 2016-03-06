@@ -3,11 +3,15 @@
 var angular               = require('angular');
 var HotelController       = require('./hotel-controller');
 var HotelDetailController = require('./hoteldetail-controller');
+var DashboardController   = require('./dashboard-controller');
+
+
 
 angular
   .module('myApp.hotel', [])
   .controller('HotelController', HotelController)
   .controller('HotelDetailController', HotelDetailController)
+  .controller('DashboardController', DashboardController)
   .filter('labelCase', function() {
     return function(input) {
       input = input.replace(/([A-Z_-])/g, ' $1').replace(/[_-]/g, ' ');
@@ -31,7 +35,8 @@ angular
       })
       .state({
         name: 'hotelDetail',
-        url: '/:id',
+        url: '/hotels/:id',
+        
         templateUrl: 'app/components/hotel/hotel-detail.html',
         controller: 'HotelDetailController',
         controllerAs: 'hotelDetail'
@@ -42,7 +47,13 @@ angular
         templateUrl: 'app/components/hotel/hotel-compare.html',
         controller: 'HotelDetailController',
         controllerAs: 'hotelDetail'
-        
       })
+      .state({
+        name: 'dashboard',
+        url: '/dashboard/admin',
+        templateUrl: 'app/components/hotel/dashboard.html',
+        controller: 'DashboardController',
+        controllerAs: 'dashboard'
+      });
     $urlRouterProvider.otherwise('/');
   });
