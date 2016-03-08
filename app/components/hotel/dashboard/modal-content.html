@@ -1,16 +1,8 @@
-<div class="font-arial">
+<div class="font-arial"> 
  <div class="modal-header">
-    <h3 class="modal-title">Edit</h3>
+    <h3 class="modal-title">Edit hotel  {{modalInstance.item.hotel_name}}</h3>
   </div>
   <div class="modal-body">
-<!--
-      <ul>
-          <li ng-repeat="item in items">
-              <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
-          </li>
-      </ul>
-     
--->
       <form class="form-horizontal" id="my-form">
         <div class="form-group">
           <label for="username160556" class="control-label col-sm-4">Hotel</label>
@@ -36,6 +28,7 @@
           <div class="col-sm-8">
             <div ng-repeat="(key,value) in modalInstance.item.hotel_information.arriving_leaving track by $index">
               <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_information.arriving_leaving[key]" type="text">
+              <br>
             </div>
           </div>
         </div>
@@ -43,7 +36,7 @@
           <label for="password403134" class="control-label col-sm-4">Hotel size </label>
           <div class="col-sm-8">
             <div ng-repeat="(key,value) in modalInstance.item.hotel_information.hotel_size track by $index">
-              <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_information.hotel_size[key]" type="text">
+              <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_information.hotel_size[key]" type="text"><br>
             </div>
           </div>
         </div>
@@ -52,28 +45,30 @@
           <div class="col-sm-8">
             <div ng-repeat="(key,value) in modalInstance.item.hotel_information.required_at_checkin track by $index">
               <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_information.required_at_checkin[key]" type="text">
+              <br>
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="password403134" class="control-label col-sm-4">Main amenities </label>
+          <label class="control-label col-sm-4">Main amenities </label>
           <div class="col-sm-8">
             <div ng-repeat="(key,value) in modalInstance.item.hotel_overview.hotel_main_amenties track by $index">
-              <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_overview.hotel_main_amenties[key]" type="text">
+              <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_overview.hotel_main_amenties[key]" type="text"><br>
             </div>
           </div>
         </div>
         <div class="form-group">
-          <label for="password403134" class="control-label col-sm-4">What's around </label>
+          <label class="control-label col-sm-4">What's around </label>
           <div class="col-sm-8">
             <div ng-repeat="(key,value) in modalInstance.item.hotel_overview.hotel_what_arround track by $index">
               <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_overview.hotel_what_arround[key]" type="text">
+              <br>
             </div>
           </div>
         </div>
         
         <div class="form-group">
-           <label for="password403134" class="control-label col-sm-4">Room information </label>
+           <label class="control-label col-sm-4">Room information </label>
             <div class="col-sm-8">
               <div class="radio" ng-repeat="(key0,value0) in modalInstance.item.hotel_room_choices track by $index">
                   <label>
@@ -85,18 +80,13 @@
            
         </div>
         <div ng-show="modalInstance.formChoice === key0" class="form-group" ng-init="modalInstance.formChoice = 'choice1'" ng-repeat="(key0,value0) in modalInstance.item.hotel_room_choices">
-<!--
-          <label class="control-label col-sm-4">
-            {{key0 | labelCase}}
-          </label>
--->
           <div class="col-sm-12 text-left">
             <div ng-repeat="(key,value) in value0 track by $index" ng-hide="key === 'room_information'">
                 <label class="control-label col-sm-4">
                  {{key | labelCase}}
                 </label>
                 <div class="col-sm-8">
-                   <input ng-model="modalInstance.item.hotel_room_choices[key0][key]" class="form-control" type="text">
+                   <input ng-model="modalInstance.item.hotel_room_choices[key0][key]" class="form-control" type="text"><br>
                 </div>
               </div>
               <div ng-repeat="(key,value) in modalInstance.item.hotel_room_choices[key0].room_information">
@@ -104,41 +94,15 @@
                  {{key | labelCase}}
                 </label>
                 <div class="col-sm-8">
-                   <input ng-model="modalInstance.item.hotel_room_choices[key0].room_information[key]" class="form-control" type="text">
+                   <input ng-model="modalInstance.item.hotel_room_choices[key0].room_information[key]" class="form-control" type="text"><br>
                 </div>
               </div>
             </div>
           </div>
-    
-<!--
-         <div class="form-group" ng-show="modalInstance.formChoice === 'choice2'">
-          <label for="password403134" class="control-label col-sm-4">Room choice 2 </label>
-          <div class="col-sm-8">
-            <div ng-repeat="(key,value) in modalInstance.item.hotel_room_choices.choice2 track by $index" ng-hide="key === 'room_information'">
-                <label class="control-label col-sm-5">
-                 {{key | labelCase}}
-                </label>
-                <div class="col-sm-7">
-                   <input ng-model="modalInstance.item.hotel_room_choices.choice2[key]" class="form-control" type="text">
-                </div>
-              </div>
-              <div ng-repeat="(key,value) in modalInstance.item.hotel_room_choices.choice2.room_information">
-                <label class="control-label col-sm-5">
-                 {{key | labelCase}}
-                </label>
-                <div class="col-sm-7">
-                   <input ng-model="modalInstance.item.hotel_room_choices.choice2.room_information[key]" class="form-control" type="text">
-                </div>
-              </div>
-            </div>
-          </div>
--->
     </form>
-    
-    <pre>{{modalInstance.item | json}}</pre>
   </div>
   <div class="modal-footer">
-      <button class="btn btn-primary" type="button" ng-click="modalInstance.ok()">OK</button>
+      <button class="btn btn-primary" type="button" ng-click="modalInstance.ok()">Apply</button>
       <button class="btn btn-warning" type="button" ng-click="modalInstance.cancel()">Cancel</button>
   </div>
 </div>

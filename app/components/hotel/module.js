@@ -3,8 +3,8 @@
 var angular               = require('angular');
 var HotelController       = require('./hotel-controller');
 var HotelDetailController = require('./hoteldetail-controller');
-var DashboardController   = require('./dashboard-controller');
-var ModalInstanceController = require('./modal-instance-controller');
+var DashboardController   = require('./dashboard/dashboard-controller');
+var ModalInstanceController = require('./dashboard/modal-instance-controller');
 
 
 
@@ -55,7 +55,7 @@ angular
       .state({
         name: 'dashboard',
         url: '/dashboard/admin',
-        templateUrl: 'app/components/hotel/dashboard.html',
+        templateUrl: 'app/components/hotel/dashboard/dashboard.html',
         controller: 'DashboardController',
         controllerAs: 'dashboard',
         data: { isAdmin: true }

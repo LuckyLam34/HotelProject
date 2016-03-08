@@ -1,0 +1,205 @@
+<div class="font-arial"> 
+ <div class="modal-header">
+    <h3 class="modal-title">Add new hotel</h3>
+  </div>
+  <div class="modal-body">
+      <form class="form-horizontal" id="my-form">
+        <div class="form-group">
+          <label class="control-label col-sm-4">Hotel</label>
+          <div class="col-sm-7">
+          <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_name" type="text">
+            
+          </div>
+          <div class="col-sm-1">
+            
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4">City </label>
+          <div class="col-sm-7">
+          <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_city" type="text">
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+         <div class="form-group">
+          <label class="control-label col-sm-4">Address </label>
+          <div class="col-sm-7">
+            <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_address" type="text">
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+        
+<!--        arriving/leaving-->
+        <div class="form-group">
+          <label class="control-label col-sm-4">Arriving/leaving </label>
+          <div class="col-sm-7">
+            <select class="form-control" ng-model="modalInstance.selectedArrivingLeaving" ng-options="a for a in modalInstance.arrivingLeaving"></select><br>
+            
+            <!--            input for --custome---->
+            <input class="form-control" ng-model="modalInstance.tempSelectedArrivingLeaving" type="text" placeholder="Typing here..." ng-if="modalInstance.selectedArrivingLeaving === '--custome--'">
+            <!--            /end input for custome-->
+            
+            <ul>
+              <li class="list" ng-repeat="a in modalInstance.arrivingLeavingList track by $index">
+                <span class="glyphicon glyphicon-ok"></span> {{a}}
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-1">
+           
+            <!--             refresh button-->
+            <a ng-hide="modalInstance.arrivingLeavingList.length === 0" class="text-warning" href="" ng-click="modalInstance.clear(modalInstance.arrivingLeavingList)"><span class="glyphicon glyphicon-refresh"></span></a>
+            
+            <a href="" ng-hide="modalInstance.selectedArrivingLeaving === '' || modalInstance.selectedArrivingLeaving === '--custome--'" ng-click="modalInstance.push(modalInstance.selectedArrivingLeaving, 'arrivingLeavingList')"><span class="glyphicon glyphicon-plus"></span></a>
+            
+            <!--            button for custome input-->
+            <a href="" ng-hide="modalInstance.selectedArrivingLeaving !== '--custome--' || modalInstance.tempSelectedArrivingLeaving === ''" ng-click="modalInstance.push(modalInstance.tempSelectedArrivingLeaving, 'arrivingLeavingList')"><span class="glyphicon glyphicon-plus"></span></a>
+            
+          </div>
+        </div>
+        
+<!--        /end arriving/leaving-->
+       
+<!--       hotel-size-->
+        <div class="form-group">
+          <label class="control-label col-sm-4">Hotel size </label>
+          <div class="col-sm-7">
+              <input placeholder="" class="form-control" ng-model="modalInstance.tempHotelSize" type="text">
+              
+              <ul>
+                <li class="list" ng-repeat="a in modalInstance.hotelSizeList track by $index">
+                  <span class="glyphicon glyphicon-ok"></span> {{a}}
+                </li>
+              </ul>
+          </div>
+          <div class="col-sm-1">
+            <!--            refresh list-->
+            <a ng-hide="modalInstance.hotelSizeList.length === 0" class="text-warning" href="" ng-click="modalInstance.clear(modalInstance.hotelSizeList)"><span class="glyphicon glyphicon-refresh"></span></a>
+            
+            <!--            add list-->
+            <a href="" ng-show="modalInstance.tempHotelSize" ng-click="modalInstance.push(modalInstance.tempHotelSize, 'hotelSizeList')"><span class="glyphicon glyphicon-plus"></span></a>
+          </div>
+        </div>
+<!--        /end hotel-size-->
+        
+<!--        require at checkin-->
+        <div class="form-group">
+         <label class="control-label col-sm-4">Required at checkin </label>
+          <div class="col-sm-7">
+            <select class="form-control" ng-model="modalInstance.selectedRequiredAtCheckin" ng-options="a for a in modalInstance.requiredAtCheckin"></select><br>
+            
+            <!--            input for --custome---->
+            <input class="form-control" ng-model="modalInstance.tempRequiredAtCheckin" type="text" placeholder="Typing here..." ng-if="modalInstance.selectedRequiredAtCheckin === '--custome--'">
+            <!--            /end input for custome-->
+            
+            <ul>
+              <li class="list" ng-repeat="a in modalInstance.requireAtCheckinList track by $index">
+                <span class="glyphicon glyphicon-ok"></span> {{a}}
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-1">
+           
+            <!--             refresh button-->
+            <a ng-hide="modalInstance.requireAtCheckinList.length === 0" class="text-warning" href="" ng-click="modalInstance.clear(modalInstance.requireAtCheckinList)"><span class="glyphicon glyphicon-refresh"></span></a>
+            
+            <a href="" ng-hide="!modalInstance.selectedRequiredAtCheckin || modalInstance.selectedRequiredAtCheckin === '--custome--'" ng-click="modalInstance.push(modalInstance.selectedRequiredAtCheckin, 'requireAtCheckinList')"><span class="glyphicon glyphicon-plus"></span></a>
+            
+            <!--            button for custome input-->
+            <a href="" ng-hide="modalInstance.selectedRequiredAtCheckin !== '--custome--' || modalInstance.tempRequiredAtCheckin === ''" ng-click="modalInstance.push(modalInstance.tempRequiredAtCheckin, 'requireAtCheckinList')"><span class="glyphicon glyphicon-plus"></span></a>
+            
+          </div>
+        </div>
+<!--        /end require at checkin-->
+        
+<!--        main amenities-->
+        <div class="form-group">
+         <label class="control-label col-sm-4">Main amenities </label>
+          <div class="col-sm-7">
+            <select class="form-control" ng-model="modalInstance.selectedMainAmenities" ng-options="a for a in modalInstance.mainAmenities"></select><br>
+            
+            <!--            input for --custome---->
+            <input class="form-control" ng-model="modalInstance.tempMainAmenities" type="text" placeholder="Typing here..." ng-if="modalInstance.selectedMainAmenities === '--custome--'">
+            <!--            /end input for custome-->
+            
+            <ul>
+              <li class="list" ng-repeat="a in modalInstance.mainAmenitiesList track by $index">
+                <span class="glyphicon glyphicon-ok"></span> {{a}}
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-1">
+           
+            <!--             refresh button-->
+            <a ng-hide="modalInstance.mainAmenitiesList.length === 0" class="text-warning" href="" ng-click="modalInstance.clear(modalInstance.mainAmenitiesList)"><span class="glyphicon glyphicon-refresh"></span></a>
+            
+            <a href="" ng-hide="!modalInstance.selectedMainAmenities || modalInstance.selectedMainAmenities === '--custome--'" ng-click="modalInstance.push(modalInstance.selectedMainAmenities, 'mainAmenitiesList')"><span class="glyphicon glyphicon-plus"></span></a>
+            
+            <!--            button for custome input-->
+            <a href="" ng-hide="modalInstance.selectedMainAmenities !== '--custome--' || modalInstance.tempMainAmenities === ''" ng-click="modalInstance.push(modalInstance.tempMainAmenities, 'mainAmenitiesList')"><span class="glyphicon glyphicon-plus"></span></a>
+            
+          </div>
+        </div>
+<!--        /end main amenities-->
+       
+<!--       what's arround-->
+        <div class="form-group">
+         <label class="control-label col-sm-4">What's around </label>
+          <div class="col-sm-7">
+              <input placeholder="" class="form-control" ng-model="modalInstance.tempAround" type="text">
+              
+              <ul>
+                <li class="list" ng-repeat="a in modalInstance.aroundList track by $index">
+                  <span class="glyphicon glyphicon-ok"></span> {{a}}
+                </li>
+              </ul>
+          </div>
+          <div class="col-sm-1">
+            <!--            refresh list-->
+            <a ng-hide="modalInstance.aroundList.length === 0" class="text-warning" href="" ng-click="modalInstance.clear(modalInstance.aroundList)"><span class="glyphicon glyphicon-refresh"></span></a>
+            
+            <!--            add list-->
+            <a href="" ng-show="modalInstance.tempAround" ng-click="modalInstance.push(modalInstance.tempAround, 'aroundList')"><span class="glyphicon glyphicon-plus"></span></a>
+          </div>
+        </div>
+<!--        /end what's around-->
+        
+        <div class="form-group">
+           <label class="control-label col-sm-4">Room information </label>
+            <div class="col-sm-8">
+              <div class="radio" ng-repeat="(key0,value0) in modalInstance.item.hotel_room_choices track by $index">
+                  <label>
+                      <input type="radio" name="chickenEgg" ng-value="key0" ng-model="modalInstance.formChoice">
+                      {{key0 | labelCase}}
+                  </label>
+              </div>
+            </div>
+           
+        </div>
+        <div ng-show="modalInstance.formChoice === key0" class="form-group" ng-init="modalInstance.formChoice = 'choice1'" ng-repeat="(key0,value0) in modalInstance.item.hotel_room_choices">
+          <div class="col-sm-12 text-left">
+            <div ng-repeat="(key,value) in value0 track by $index" ng-hide="key === 'room_information' || key === 'room_type'">
+                <label class="control-label col-sm-4">
+                 {{key | labelCase}}
+                </label>
+                <div class="col-sm-8">
+                   <input ng-model="modalInstance.item.hotel_room_choices[key0][key]" class="form-control" type="text"><br>
+                </div>
+              </div>
+              <div ng-repeat="(key,value) in modalInstance.item.hotel_room_choices[key0].room_information">
+                <label class="control-label col-sm-4">
+                 {{key | labelCase}}
+                </label>
+                <div class="col-sm-8">
+                   <input ng-model="modalInstance.item.hotel_room_choices[key0].room_information[key]" class="form-control" type="text"><br>
+                </div>
+              </div>
+            </div>
+          </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-primary" type="button" ng-click="modalInstance.ok()">Add</button>
+      <button class="btn btn-warning" type="button" ng-click="modalInstance.cancel()">Cancel</button>
+  </div>
+</div>

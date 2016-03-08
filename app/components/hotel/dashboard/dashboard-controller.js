@@ -125,7 +125,7 @@ var DashboardController = (function() {
               };
         
     var modalInstance = this.$uibModal.open({
-      templateUrl: 'app/components/hotel/dashboard/modal-content.html', 
+      templateUrl: 'app/components/hotel/dashboard/modal-content-add.html',
       controller: 'ModalInstanceController',
       controllerAs: 'modalInstance',
       size: 'lg',
@@ -137,8 +137,8 @@ var DashboardController = (function() {
     });
     
     modalInstance.result.then(function(item) {
-      self.FirebaseService.updateHotel(item);
-      alert('Updated successfully');
+      self.FirebaseService.addHotel(item);
+      alert('Added successfully');
     }, function() {
       console.log('failed');
     });

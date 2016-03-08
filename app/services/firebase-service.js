@@ -104,6 +104,39 @@ var FirebaseService = (function() {
         console.log('Error on removing:', error);
       });
     }
+  };
+  
+  FirebaseService.prototype.updateHotel = function(hotel) {
+    var ref = new Firebase(this.link);
+    var data = {};
+  
+    var onComplete = function(error) {
+      if (error) {
+        console.log('Synchronization failed');
+      } else {
+        console.log('Synchronization succeeded');
+      }
+    };
+    
+    for (var prop in hotel) {
+      if (prop !== '$id' && prop !== '$priority') {
+        data[prop] = hotel[prop];
+      }
+    }
+    
+    ref.child(hotel.$id).set(data);
+  };
+  
+  FirebaseService.prototype.addHotel = function(hotel) {
+    var ref = new Firebase(this.link);
+    var list = this.$firebaseArray(ref);
+    
+    list.$add(hotel).then(function(ref) {
+      var id = ref.key();
+      console.log('Added record with id:' + id);
+      
+      list.$indexFor(id);
+    });
   }
   
   return FirebaseService;
