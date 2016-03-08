@@ -21,22 +21,20 @@ angular
  .config(/*@ngInject*/function($compileProvider) {
     $compileProvider.debugInfoEnabled(false);
   })
-  .run(/*@ngInject*/function($rootScope, FirebaseService, $state) {
+  .run(/*@ngInject*/function($rootScope, FirebaseService, $state, LocalStorageService) {
+    var isAdmin;
   
-    var authenticated;
-    
-//    FirebaseService.auth().$onAuth(function(authData) {
-//      authenticated = true;
-//    });
-//  
-    $rootScope.$on('isAuthenticated', function(event, data) {
-      console.log(data);
-      authenticated = data;
+    if (LocalStorageService.getAdminState()) {
+      isAdmin = true;    
+    }
+  
+    $rootScope.$on('isAdmin', function(event, data) {
+      isAdmin = data;
     });
-    
+
     $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams) {
-      if (toState.data.isAdmin === true && !authenticated) {
-        alert('not admin');
+      if (toState.data.isAdmin === true && !isAdmin) {
+        
         event.preventDefault();
         $state.go('notAuthorized');
         return false;

@@ -4,6 +4,7 @@ var angular               = require('angular');
 var HotelController       = require('./hotel-controller');
 var HotelDetailController = require('./hoteldetail-controller');
 var DashboardController   = require('./dashboard-controller');
+var ModalInstanceController = require('./modal-instance-controller');
 
 
 
@@ -12,6 +13,7 @@ angular
   .controller('HotelController', HotelController)
   .controller('HotelDetailController', HotelDetailController)
   .controller('DashboardController', DashboardController)
+  .controller('ModalInstanceController', ModalInstanceController)
   .filter('labelCase', function() {
     return function(input) {
       input = input.replace(/([A-Z_-])/g, ' $1').replace(/[_-]/g, ' ');

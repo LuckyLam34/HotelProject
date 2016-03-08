@@ -4,12 +4,16 @@ require('angularfire');
 
 var FirebaseService = (function() {
   /*@ngInject*/
-  function FirebaseService($firebaseObject, $firebaseArray, $firebaseAuth) {
+  function FirebaseService($firebaseObject, $firebaseArray, $firebaseAuth, $window, $state) {
     this.$firebaseObject = $firebaseObject;
     this.$firebaseArray = $firebaseArray;
     this.$firebaseAuth = $firebaseAuth;
+    
     this.link = 'https://shining-fire-8539.firebaseio.com/myhotels/'; 
     this.originalLink = 'https://shining-fire-8539.firebaseio.com';
+    
+    this.$window = $window;
+    this.$state = $state;
   }
   
   FirebaseService.prototype.getDefaultData = function() {
@@ -85,6 +89,21 @@ var FirebaseService = (function() {
     });
   
     return data;
+  }
+  
+  FirebaseService.prototype.removeHotel = function(id) {
+    var removeHotel = this.$window.confirm('Are you sure you want to delete?');
+    
+    if (removeHotel) {
+      var ref = new Firebase(this.link + id);
+      var object = this.$firebaseObject(ref);
+
+      object.$remove().then(function(ref) {
+        console.log('hotel is removed');
+      }, function(error) {
+        console.log('Error on removing:', error);
+      });
+    }
   }
   
   return FirebaseService;

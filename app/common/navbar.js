@@ -2,18 +2,24 @@
 
 var NavbarController = (function() {
   /*@ngInject*/
-  function NavbarController(FirebaseService, $state, $rootScope) {
+  function NavbarController(FirebaseService, LocalStorageService, $state, $rootScope) {
     this.$state = $state;
     this.$rootScope = $rootScope;
+    this.isAdmin;
+    this.LocalStorageService = LocalStorageService;
     this.FirebaseService = FirebaseService;
     this.auth = this.FirebaseService.auth();
     this.authData;
     var self = this;
+    
     this.auth.$onAuth(function(authData) {
       self.authData = authData;
-      if (authData) {
-        self.$rootScope.$broadcast('isAuthenticated', true);
+      if (authData && authData.uid === 'google:104658983305316665305') {
+        self.$rootScope.$broadcast('isAdmin', true);
+        self.isAdmin = true;
+        self.LocalStorageService.saveAdminState();
       }
+     
       self.reload();
     });
   }
@@ -23,7 +29,9 @@ var NavbarController = (function() {
   }
   
   NavbarController.prototype.logOut = function() {
-    this.$rootScope.$broadcast('isAuthenticated', false);
+    this.$rootScope.$broadcast('isAdmin', false);
+    this.isAdmin = false;
+    this.LocalStorageService.clearAdminState();
     return this.auth.$unauth();
   };
   

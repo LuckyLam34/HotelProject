@@ -1,5 +1,6 @@
 <div class="container">
   <section class="admin-dashboard">
+    <uib-alert ng-show="dashboard.isSuccessAlert" type="success" close="dashboard.closeAlert()">Hey</uib-alert>
     <div class="row">
       <div class="col-sm-3">
           <ul class="nav nav-tabs nav-stacked nav-pills" role="tablist">
@@ -13,12 +14,100 @@
       </div>
       <div class="col-sm-9 border-color border-radius border font-arial">
           <div class="tab-content" ng-hide="dashboard.viewTab !== 'tab1'">
-            Manage hotels
+            <!-- Manage hotels-->
+             <div class="table-responsive">
+               <table class="table table-hover">
+                 <thead>
+                   <tr>
+                     <th>
+                       
+                     </th>
+                     <th>
+                       Hotel
+                     </th>
+                     <th>
+                       City
+                     </th>
+                     <th>
+                       Action
+                     </th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                  <tr>
+                    <td>
+                      
+                    </td>
+                    <td>
+                      <div class="input-group">
+                        
+                      </div>
+                      <input type="text" class="form-control" placeholder="Search..." ng-model="dashboard.nameModel">
+                    </td>
+                    <td>
+                      <div class="input-group">
+                        
+                      </div>
+                      <input type="text" class="form-control" placeholder="Search..." ng-model="dashboard.cityModel">
+                    </td>
+                  </tr>
+                  
+                   <tr ng-repeat="h in dashboard.data | filter: dashboard.nameModel | filter: dashboard.cityModel track by $index">
+                     <td>
+                       {{$index + 1}}
+                     </td>
+                     <td>
+                       {{h.hotel_name}}
+                     </td>
+                     <td>
+                       {{h.hotel_city}} 
+                     </td>
+                     <td>
+                      <a href="" ng-click="dashboard.open(h)">
+                        <span class="glyphicon glyphicon-pencil"></span> </a>
+                       <a href="" ng-click="dashboard.removeHotel(h.$id)" ><span class="glyphicon glyphicon-remove"></span></a>
+                     </td>
+                   </tr>
+<!--
+                   <tr>
+                     <td colspan="3">
+                       heyyyyyyyyyyyyy
+                     </td>
+                   </tr>
+-->
+                 </tbody>
+               </table>
+             </div>
           </div>
+          
+          <!--          Modal-->
+<!--
+            <div class="modal-header">
+              <h3 class="modal-title">I'm a modal!</h3>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li ng-repeat="item in items">
+                        <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+                    </li>
+                </ul>
+                Selected: <b>{{ selected.item }}</b>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+                <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+            </div>
+-->
+         <button type="button" class="btn btn-default" ng-click="dashboard.open('lg')">Large modal</button>
+          <!--          /EndModal-->
+          
+          
+          
           <div class="tab-content" ng-show="dashboard.viewTab === 'tab2'">
             Manage booking
           </div>
       </div>
     </div>
   </section>
+  <pre>{{dashboard.selected | json}}</pre>
 </div>

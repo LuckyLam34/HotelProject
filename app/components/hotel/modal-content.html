@@ -1,0 +1,150 @@
+<div class="font-arial">
+ <div class="modal-header">
+    <h3 class="modal-title">Edit</h3>
+  </div>
+  <div class="modal-body">
+<!--
+      <ul>
+          <li ng-repeat="item in items">
+              <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
+          </li>
+      </ul>
+     
+-->
+      <form class="form-horizontal" id="my-form">
+        <div class="form-group">
+          <label for="username160556" class="control-label col-sm-4">Hotel</label>
+          <div class="col-sm-8">
+          <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_name" type="text">
+            
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password403134" class="control-label col-sm-4">City </label>
+          <div class="col-sm-8">
+          <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_city" type="text">
+          </div>
+        </div>
+         <div class="form-group">
+          <label for="password403134" class="control-label col-sm-4">Address </label>
+          <div class="col-sm-8">
+            <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_address" type="text">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password403134" class="control-label col-sm-4">Arriving/leaving </label>
+          <div class="col-sm-8">
+            <div ng-repeat="(key,value) in modalInstance.item.hotel_information.arriving_leaving track by $index">
+              <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_information.arriving_leaving[key]" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password403134" class="control-label col-sm-4">Hotel size </label>
+          <div class="col-sm-8">
+            <div ng-repeat="(key,value) in modalInstance.item.hotel_information.hotel_size track by $index">
+              <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_information.hotel_size[key]" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password403134" class="control-label col-sm-4">Required at checkin </label>
+          <div class="col-sm-8">
+            <div ng-repeat="(key,value) in modalInstance.item.hotel_information.required_at_checkin track by $index">
+              <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_information.required_at_checkin[key]" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password403134" class="control-label col-sm-4">Main amenities </label>
+          <div class="col-sm-8">
+            <div ng-repeat="(key,value) in modalInstance.item.hotel_overview.hotel_main_amenties track by $index">
+              <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_overview.hotel_main_amenties[key]" type="text">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password403134" class="control-label col-sm-4">What's around </label>
+          <div class="col-sm-8">
+            <div ng-repeat="(key,value) in modalInstance.item.hotel_overview.hotel_what_arround track by $index">
+              <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_overview.hotel_what_arround[key]" type="text">
+            </div>
+          </div>
+        </div>
+        <md-radio-group ng-model="modalInstance.roomChoice">
+          <md-radio-button value="choice1">choice1</md-radio-button>
+          <md-radio-button value="choice2">choice2</md-radio-button>
+        </md-radio-group>
+         <md-radio-group ng-model="data.group1">
+          <md-radio-button value="Apple" class="md-primary">Apple</md-radio-button>
+          <md-radio-button value="Banana"> Banana </md-radio-button>
+          <md-radio-button value="Mango">Mango</md-radio-button>
+        </md-radio-group>
+        selected: {{modalInstance.roomChoice}}
+<!--
+        <div class="form-group">
+          <label for="password403134" class="control-label col-sm-4">Room choice 1 </label>
+          <div class="col-sm-8">
+            <div ng-repeat="(key,value) in modalInstance.item.hotel_room_choices.choice1 track by $index" ng-hide="key === 'room_information'">
+                <label class="control-label col-sm-5">
+                 {{key | labelCase}}
+                </label>
+                <div class="col-sm-7">
+                   <input ng-model="modalInstance.item.hotel_room_choices.choice1[key]" class="form-control" type="text">
+                </div>
+              </div>
+              <div ng-repeat="(key,value) in modalInstance.item.hotel_room_choices.choice1.room_information">
+                <label class="control-label col-sm-5">
+                 {{key | labelCase}}
+                </label>
+                <div class="col-sm-7">
+                   <input ng-model="modalInstance.item.hotel_room_choices.choice1.room_information[key]" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+    
+-->
+<!--
+         <div class="form-group">
+          <label for="password403134" class="control-label col-sm-4">Room choice 2 </label>
+          <div class="col-sm-8">
+            <div ng-repeat="(key,value) in modalInstance.item.hotel_room_choices.choice2 track by $index" ng-hide="key === 'room_information'">
+                <label class="control-label col-sm-5">
+                 {{key | labelCase}}
+                </label>
+                <div class="col-sm-7">
+                   <input ng-model="modalInstance.item.hotel_room_choices.choice2[key]" class="form-control" type="text">
+                </div>
+              </div>
+              <div ng-repeat="(key,value) in modalInstance.item.hotel_room_choices.choice2.room_information">
+                <label class="control-label col-sm-5">
+                 {{key | labelCase}}
+                </label>
+                <div class="col-sm-7">
+                   <input ng-model="modalInstance.item.hotel_room_choices.choice2.room_information[key]" class="form-control" type="text">
+                </div>
+              </div>
+            </div>
+          </div>
+-->
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-8">
+            <div class="checkbox">
+              <label>
+                <input value="agreeTerms" class="termsAndConditions required" name="agreeTerm" id="agreeTerms" type="checkbox">
+                <span>I have read and agree to the Terms &amp; Conditions</span>
+              </label>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+          </div>
+        </div>
+    </form>
+    
+    <pre>{{modalInstance.item | json}}</pre>
+  </div>
+  <div class="modal-footer">
+      <button class="btn btn-primary" type="button" ng-click="modalInstance.ok()">OK</button>
+      <button class="btn btn-warning" type="button" ng-click="modalInstance.cancel()">Cancel</button>
+  </div>
+</div>

@@ -29,13 +29,15 @@
           <a href="" ng-click="navbar.auth.$authWithOAuthPopup('google'); navbar.goHome()">Log in with Google</a>
         </li>
         <li ng-show="navbar.authData">
-<!--          <img ng-src="{{navbar.authData.google.cachedUserProfile.picture}}" alt="user's profile picture">-->
           <a href="">
             Hello {{navbar.authData.google.displayName}}
           </a>
         </li>
         <li ng-show="navbar.authData">
           <a href="" ng-click="navbar.logOut(); navbar.goHome()">Log out</a>
+        </li>
+        <li ng-show="navbar.isAdmin">
+          <a ui-sref='dashboard'>Dashboard</a>
         </li>
       </ul>
     </div>
