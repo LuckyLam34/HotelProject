@@ -11,10 +11,6 @@ var HotelDetailController = (function() {
     this.loadDetailData();
     this.data = {};
     this.loadTwoComparedHotels();
-    
-    //demo
-    this.dataSetDemo = [];
-//    this.addData();
   };
   
   HotelDetailController.prototype.loadDetailData = function() {
@@ -32,12 +28,9 @@ var HotelDetailController = (function() {
     this.data.hotel2 = hotelTwo;
   }
 
-  //demo add data in AngularFire way
-  HotelDetailController.prototype.addData = function() {
-    
-    console.log('in');
-    this.dataSetDemo = this.FirebaseService.setDemo();
-    
+  
+  HotelDetailController.prototype.isObject = function(input) {
+    return angular.isObject(input);
   }
   
   return HotelDetailController;

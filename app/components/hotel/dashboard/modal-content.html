@@ -86,6 +86,7 @@
                  {{key | labelCase}}
                 </label>
                 <div class="col-sm-8">
+                  
                    <input ng-model="modalInstance.item.hotel_room_choices[key0][key]" class="form-control" type="text"><br>
                 </div>
               </div>
@@ -94,7 +95,12 @@
                  {{key | labelCase}}
                 </label>
                 <div class="col-sm-8">
-                   <input ng-model="modalInstance.item.hotel_room_choices[key0].room_information[key]" class="form-control" type="text"><br>
+<!--                  if bathroom is object-->
+                   <div  ng-if="modalInstance.isObject(modalInstance.item.hotel_room_choices[key0].room_information[key])" ng-repeat="(key1,value1) in modalInstance.item.hotel_room_choices[key0].room_information[key]">
+                     <input ng-model="modalInstance.item.hotel_room_choices[key0].room_information[key][key1]" class="form-control" type="text"><br>
+                   </div>
+<!--                  /if bathroom is not object-->
+                   <input ng-if="!modalInstance.isObject(modalInstance.item.hotel_room_choices[key0].room_information[key])" ng-model="modalInstance.item.hotel_room_choices[key0].room_information[key]" class="form-control" type="text"><br>
                 </div>
               </div>
             </div>

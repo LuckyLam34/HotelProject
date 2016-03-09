@@ -126,7 +126,7 @@ var DashboardController = (function() {
         
     var modalInstance = this.$uibModal.open({
       templateUrl: 'app/components/hotel/dashboard/modal-content-add.html',
-      controller: 'ModalInstanceController',
+      controller: 'ModalInstanceAddController',
       controllerAs: 'modalInstance',
       size: 'lg',
       resolve: {

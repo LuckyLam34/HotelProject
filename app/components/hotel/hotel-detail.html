@@ -23,7 +23,7 @@
               </tr>
             </thead>
             <tbody>
-             <tr ng-repeat="(key, value) in hotelDetail.detailData.hotel_overview.hotel_main_amenties track by $index">
+             <tr ng-show="value" ng-repeat="(key, value) in hotelDetail.detailData.hotel_overview.hotel_main_amenties track by $index">
                <td><span class="glyphicon glyphicon-ok"></span> {{value}}</td>
              </tr>
             </tbody>
@@ -40,7 +40,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="(key, value) in hotelDetail.detailData.hotel_overview.hotel_what_arround track by $index">
+              <tr ng-show="value" ng-repeat="(key, value) in hotelDetail.detailData.hotel_overview.hotel_what_arround track by $index">
                 <td><span class="glyphicon glyphicon-ok-circle"></span> {{value}}</td>
               </tr>
             </tbody>
@@ -64,7 +64,7 @@
         <div class="border border-radius">
           
           <ul class="list">
-            <li ng-repeat="(key, value) in hotelDetail.detailData.hotel_information track by $index">
+            <li ng-show="value" ng-repeat="(key, value) in hotelDetail.detailData.hotel_information track by $index">
               <h4><span class="glyphicon glyphicon-chevron-right"></span> {{key | labelCase }}</h4>
               <ul>
                 <li ng-repeat="data in value track by $index">
@@ -97,16 +97,32 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="(key, value) in hotelDetail.detailData.hotel_room_choices track by $index">
+            <tr ng-show="value" ng-repeat="(key, value) in hotelDetail.detailData.hotel_room_choices track by $index">
               <td><div class="btn btn-success">Book</div></td>
-              <td>{{value.room_type}}</td>
+              <td>
+                 <div ng-if="!hotelDetail.isObject(value.room_type)">{{value.room_type}}</div>
+                 <ul class="list" ng-if="hotelDetail.isObject(value.room_type)" ng-repeat="(key3,value3) in value.room_type track by $index">
+                   <li>
+                     {{value3}}
+                   </li>
+                 </ul>
+              </td>
               <td>{{value.room_max}}</td>
               <td>
+<!--               <pre>{{value.room_information | json}}</pre>-->
                 <table class="">
                   <tr ng-repeat="(key1, value1) in value.room_information">
-                    <td>{{key1 | labelCase}}</td>
-
-                    <td class="padding-left"><span class="glyphicon glyphicon-arrow-right"></span> {{value1}}</td>
+                    <td class="bold">{{key1 | labelCase}}</td>
+                    <td class="padding-left">
+                      <ul class="list" ng-if="hotelDetail.isObject(value1)">
+                        <li ng-repeat="(key2,value2) in value1 track by $index">
+                          {{value2}}
+                        </li>
+                      </ul>
+                      <div ng-if="!hotelDetail.isObject(value1)">
+                        {{value1}}
+                      </div>
+                    </td>
                   </tr>
                 </table>
               </td>
