@@ -1,5 +1,6 @@
 'use strict';
 
+
 var DashboardController = (function() {
   /*@ngInject*/
   function DashboardController(FirebaseService, $state, $uibModal, $log) {
@@ -139,6 +140,7 @@ var DashboardController = (function() {
     modalInstance.result.then(function(item) {
       self.FirebaseService.addHotel(item);
       alert('Added successfully');
+      self.$state.reload();
     }, function() {
       console.log('failed');
     });

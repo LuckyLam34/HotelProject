@@ -2,6 +2,9 @@
 require('firebase');
 require('angularfire');
 
+var showdown = require('showdown'),
+    converter = new showdown.Converter(); 
+
 var FirebaseService = (function() {
   /*@ngInject*/
   function FirebaseService($firebaseObject, $firebaseArray, $firebaseAuth, $window, $state) {
@@ -143,11 +146,12 @@ var FirebaseService = (function() {
     var link = 'https://shining-fire-8539.firebaseio.com/myhotels/' + id + '/hotel_comments';
     var ref = new Firebase(link);
     var list = this.$firebaseArray(ref);
+    
     var data = {
       created: (new Date()).toLocaleString(),
       from: username,
       id: uid,
-      messages: messages,
+      messages: converter.makeHtml(messages),
       profile_picture: avata
     };
     

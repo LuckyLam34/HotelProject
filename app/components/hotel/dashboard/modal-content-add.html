@@ -1,6 +1,7 @@
 <div class="font-arial"> 
  <div class="modal-header">
     <h3 class="modal-title">Add new hotel</h3>
+    <img ng-if="modalInstance.item.hotel_images" class="img-responsive" ng-src="{{modalInstance.item.hotel_images}}" alt="hotel image">  
   </div>
   <div class="modal-body">
       <form class="form-horizontal" id="my-form">
@@ -25,6 +26,13 @@
           <label class="control-label col-sm-4">Address </label>
           <div class="col-sm-7">
             <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_address" type="text">
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-sm-4">Image </label>
+          <div class="col-sm-7">
+            <input placeholder="" class="form-control" ng-model="modalInstance.item.hotel_images" type="text">
           </div>
           <div class="col-sm-1"></div>
         </div>

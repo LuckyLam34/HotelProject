@@ -15,7 +15,7 @@
             <span class="text-muted">{{value.created}}</span>
           </div>
           <div class="panel-body font-arial">
-            {{value.messages}}
+            <div ng-bind-html="comment.renderHTML(value.messages)"></div>
           </div><!-- /panel-body -->
         </div><!-- /panel panel-default -->
       </div><!-- /col-sm-8 -->
@@ -37,7 +37,7 @@
             <span class="text-muted">{{value.created}}</span>
           </div>
           <div class="panel-body font-arial">
-            {{value.messages}}
+            <div ng-bind-html="comment.renderHTML(value.messages)"></div>
           </div><!-- /panel-body -->
         </div><!-- /panel panel-default -->
       </div><!-- /col-sm-8 -->

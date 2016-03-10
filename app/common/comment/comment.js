@@ -3,8 +3,9 @@
 var CommentController = (function() {
   
   /*@ngInject*/
-  function CommentController(FirebaseService, $stateParams) {
+  function CommentController(FirebaseService, $stateParams, $sce) {
     this.FirebaseService = FirebaseService;
+    this.$sce = $sce;
     this.data;
     this.loadComment();
     this.id;
@@ -30,9 +31,19 @@ var CommentController = (function() {
   
       if (!this.authData) {
         alert('Please log in to add your comment');
+        return false;
+      } else if (!this.messages) {
+        alert('Your message is empty');
+        
+        return false;
       } else {
         this.FirebaseService.addComment(this.authData.uid, this.authData.google.cachedUserProfile.name, this.messages, this.$stateParams.id, this.authData.google.profileImageURL); 
+        this.messages = '';
       }
+  }
+  
+  CommentController.prototype.renderHTML = function(htmlCode) {
+    return this.$sce.trustAsHtml(htmlCode);
   }
   
   return CommentController;
