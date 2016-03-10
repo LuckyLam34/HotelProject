@@ -21,7 +21,7 @@ var hotel = function() {
   return {
     replace: true,
     restrict: 'E',
-    templateUrl: 'app/common/latest-hotels.html',
+    templateUrl: 'app/common/latest-hotels/latest-hotels.html',
     controller: LatestHotelsController,
     controllerAs: 'latestHotels'
   }

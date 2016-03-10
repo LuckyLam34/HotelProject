@@ -110,7 +110,7 @@
               <td>{{value.room_max}}</td>
               <td>
                 <table class="">
-                  <tr ng-repeat="(key1, value1) in value.room_information">
+                  <tr ng-repeat="(key1, value1) in value.room_information track by $index">
                     <td class="bold">{{key1 | labelCase}}</td>
                     <td class="padding-left">
                       <ul class="list" ng-if="hotelDetail.isObject(value1)">

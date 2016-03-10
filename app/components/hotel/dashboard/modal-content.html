@@ -88,7 +88,7 @@
             </div>
            
         </div>
-        <div ng-show="modalInstance.formChoice === key0" class="form-group" ng-init="modalInstance.formChoice = 'choice1'" ng-repeat="(key0,value0) in modalInstance.item.hotel_room_choices">
+        <div ng-show="modalInstance.formChoice === key0" class="form-group" ng-init="modalInstance.formChoice = 'choice1'" ng-repeat="(key0,value0) in modalInstance.item.hotel_room_choices track by $index">
 <!--         <pre>{{value0 | json}}</pre>-->
           <div class="col-sm-12 text-left">
             <div ng-repeat="(key,value) in value0 track by $index" ng-hide="key === 'room_information'">
@@ -106,13 +106,13 @@
                   </div>
                 </div>
               </div>
-              <div ng-repeat="(key,value) in modalInstance.item.hotel_room_choices[key0].room_information">
+              <div ng-repeat="(key,value) in modalInstance.item.hotel_room_choices[key0].room_information track by $index">
                 <label class="control-label col-sm-4">
                  {{key | labelCase}}
                 </label>
                 <div class="col-sm-8">
 <!--                  if bathroom is object-->
-                   <div  ng-if="modalInstance.isObject(modalInstance.item.hotel_room_choices[key0].room_information[key])" ng-repeat="(key1,value1) in modalInstance.item.hotel_room_choices[key0].room_information[key]">
+                   <div  ng-if="modalInstance.isObject(modalInstance.item.hotel_room_choices[key0].room_information[key])" ng-repeat="(key1,value1) in modalInstance.item.hotel_room_choices[key0].room_information[key] track by $index">
                      <input ng-model="modalInstance.item.hotel_room_choices[key0].room_information[key][key1]" class="form-control" type="text"><br>
                    </div>
 <!--                  /if bathroom is not object-->

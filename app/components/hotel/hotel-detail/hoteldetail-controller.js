@@ -28,7 +28,6 @@ var HotelDetailController = (function() {
     this.data.hotel2 = hotelTwo;
   }
 
-  
   HotelDetailController.prototype.isObject = function(input) {
     return angular.isObject(input);
   }

@@ -28,7 +28,6 @@ var CommentController = (function() {
   };
   
   CommentController.prototype.addComment = function() {
-  
       if (!this.authData) {
         alert('Please log in to add your comment');
         return false;

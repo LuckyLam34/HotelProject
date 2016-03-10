@@ -47,7 +47,7 @@ var navbar = function() {
   return {
     replace: true,
     restrict: 'AE',
-    templateUrl: 'app/common/navbar.html',
+    templateUrl: 'app/common/navbar/navbar.html',
     controller: NavbarController,
     controllerAs: 'navbar'
   };

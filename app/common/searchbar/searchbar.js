@@ -47,7 +47,7 @@ var searchbar = function() {
   return {
     replace: true,
     restrict: 'E',
-    templateUrl: 'app/common/searchbar.html',
+    templateUrl: 'app/common/searchbar/searchbar.html',
     controller: SearchbarController,
     controllerAs: 'searchbar'
   };

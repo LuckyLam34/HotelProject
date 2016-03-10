@@ -1,13 +1,11 @@
 'use strict';
 
 var angular               = require('angular');
-var HotelController       = require('./hotel-controller');
-var HotelDetailController = require('./hoteldetail-controller');
+var HotelController       = require('./hotel-main/hotel-controller');
+var HotelDetailController = require('./hotel-detail/hoteldetail-controller');
 var DashboardController   = require('./dashboard/dashboard-controller');
 var ModalInstanceController = require('./dashboard/modal-instance-controller');
-var ModalInstanceAddController = require('./dashboard/modal-instance-add-controller');
-
-
+var ModalInstanceAddController = require('./dashboard/modal-instance-add-controller'); 
 
 angular
   .module('myApp.hotel', [])
@@ -33,7 +31,7 @@ angular
       .state({
         name: 'hotel',
         url: '/',
-        templateUrl: 'app/components/hotel/hotel-main.html',
+        templateUrl: 'app/components/hotel/hotel-main/hotel-main.html',
         controller: 'HotelController',
         controllerAs: 'hotel',
         data: { isAdmin: false }
@@ -42,14 +40,14 @@ angular
         name: 'hotelDetail',
         url: '/hotels/:id',
         data: { isAdmin: false },
-        templateUrl: 'app/components/hotel/hotel-detail.html',
+        templateUrl: 'app/components/hotel/hotel-detail/hotel-detail.html',
         controller: 'HotelDetailController',
         controllerAs: 'hotelDetail'
       })
       .state({
         name: 'compare',
         url: '/compare/:id1/:id2',
-        templateUrl: 'app/components/hotel/hotel-compare.html',
+        templateUrl: 'app/components/hotel/hotel-detail/hotel-compare.html',
         controller: 'HotelDetailController',
         controllerAs: 'hotelDetail',
         data: { isAdmin: false }
