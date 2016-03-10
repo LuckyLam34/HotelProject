@@ -22,7 +22,7 @@
 
 body {
   font: 140% Century Gothic, Helvetica, sans-serif;
-  background-color: #f2f2f2; }
+  background-color: #FAFAFA; }
 
 .navbar-inverse {
   background-color: #1565C0;
@@ -46,7 +46,7 @@ section.bg {
 .divider {
   height: 50px; }
 
-.the-bg, .bg-1, .bg-2, .bg-3 {
+.the-bg, .bg-1, .bg-2, .bg-3, .bg-cmt {
   color: #E3F2FD; }
 
 .bg-1 {
@@ -60,6 +60,11 @@ section.bg {
 .bg-3 {
   background: url("../Resources/luxury_hotel2.jpg") no-repeat bottom center fixed;
   background-size: cover; }
+
+.bg-cmt {
+  background: url("../Resources/hotel_cmt.jpg") no-repeat bottom center fixed;
+  background-size: cover;
+  margin-top: 22px; }
 
 .bold {
   font-weight: bold; }
@@ -144,6 +149,12 @@ ul.list ul {
   font-size: 77% !important;
   line-height: 203% !important; }
 
+hr {
+  border-top: 1px solid #fafafa; }
+
+footer {
+  margin-top: 20px; }
+
 @media only screen and (max-width: 740px) {
   .my-jumbotron h2 {
     bottom: 100px; } }
@@ -179,3 +190,38 @@ section.compare td:first-child {
 
 section.admin-dashboard {
   padding-top: 47px; }
+
+section.comment {
+  padding-top: 30px;
+  margin-bottom: 30px;
+  max-width: 1000px;
+  height: 180px;
+  overflow-x: hidden;
+  overflow-y: scroll; }
+  section.comment h3 {
+    margin-bottom: 20px; }
+  section.comment .panel {
+    position: relative; }
+    section.comment .panel .panel-heading, section.comment .panel .panel-body {
+      text-align: left; }
+    section.comment .panel .panel-body {
+      color: #000000; }
+
+.thumbnail {
+  padding: 0px; }
+
+.add-cmt {
+  position: relative; }
+  .add-cmt button {
+    position: absolute;
+    right: 0; }
+
+.position-relative {
+  position: relative; }
+
+.text-comment {
+  color: #000000;
+  text-align: left; }
+
+textarea {
+  height: 58px !important; }

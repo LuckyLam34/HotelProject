@@ -109,7 +109,6 @@
               </td>
               <td>{{value.room_max}}</td>
               <td>
-<!--               <pre>{{value.room_information | json}}</pre>-->
                 <table class="">
                   <tr ng-repeat="(key1, value1) in value.room_information">
                     <td class="bold">{{key1 | labelCase}}</td>
@@ -137,7 +136,17 @@
     </div>
   </section>
   <searchbar></searchbar> 
-  
+</div>
+<section class="bg bg-cmt">
+  <div class="col-sm-10 col-sm-offset-1 text-center">
+
+    <h1>User comments</h1>
+    <!--          searchbar-->
+     <comment id='hotelDetail.detailData.$id'></comment>
+    <!--          end searchbar-->
+  </div>
+</section>
+<div class="container">
   <section>
     <h2>Most recent hotels</h2>
     <!--  latest hotels-->

@@ -1,0 +1,66 @@
+<div>
+  <section class="comment">
+  <div ng-if="comment.data.length" ng-repeat="hotel in comment.data track by $index"> 
+    <div class="row" ng-repeat="(key,value) in hotel.hotel_comments track by $index">
+      <div class="col-sm-1 col-xs-2">
+        <div class="thumbnail">
+          <img class="img-responsive user-photo" ng-src="{{value.profile_picture}}">
+        </div><!-- /thumbnail -->
+      </div><!-- /col-sm-1 -->
+
+      <div class="col-sm-8 col-xs-10">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>{{value.from}}</strong> 
+            <span class="text-muted">{{value.created}}</span>
+          </div>
+          <div class="panel-body font-arial">
+            {{value.messages}}
+          </div><!-- /panel-body -->
+        </div><!-- /panel panel-default -->
+      </div><!-- /col-sm-8 -->
+
+    </div><!-- /row -->  
+  </div>
+  <div ng-if="!comment.data.length && comment.data.hotel_comments"> 
+    <div class="row" ng-repeat="(key,value) in comment.data.hotel_comments track by $index">
+      <div class="col-sm-1 col-xs-2">
+        <div class="thumbnail">
+          <img class="img-responsive user-photo" ng-src="{{value.profile_picture}}">
+        </div><!-- /thumbnail -->
+      </div><!-- /col-sm-1 -->
+
+      <div class="col-sm-8 col-xs-10">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>{{value.from}}</strong> 
+            <span class="text-muted">{{value.created}}</span>
+          </div>
+          <div class="panel-body font-arial">
+            {{value.messages}}
+          </div><!-- /panel-body -->
+        </div><!-- /panel panel-default -->
+      </div><!-- /col-sm-8 -->
+
+    </div><!-- /row -->  
+  </div>
+  
+  
+  </section>
+  <div class="row">
+    <div class="col-sm-1 col-xs-2">
+      <div class="thumbnail">
+        <img ng-if="!comment.authData" class="img-responsive user-photo" src="/Resources/avata.png">
+        <img ng-if="comment.authData" class="img-responsive user-photo" ng-src="{{comment.authData.google.profileImageURL}}">
+      </div><!-- /thumbnail -->
+    </div><!-- /col-sm-1 -->
+
+    <div class="col-sm-8 col-xs-10">
+      <div class="form-group add-cmt">
+        <textarea ng-model="comment.messages" placeholder="Add your comment here..." class="form-control font-arial" rows="5" id="comment"></textarea>
+        <button ng-click="comment.addComment()" class="btn btn-default font-arial">Add comment</button>
+      </div>
+    </div><!-- /col-sm-8 -->
+  </div><!-- /row -->  
+  
+</div>

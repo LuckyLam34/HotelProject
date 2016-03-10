@@ -102,69 +102,25 @@
         <td><div class="btn btn-success">Book</div></td>
         <td><div class="btn btn-success">Book</div></td>
       </tr>
-<!--
-      <tr>
-        <td>
-          Room choices
-        </td>
-        <td>
-         <ul ng-repeat="(key,value) in hotelDetail.data.hotel1.hotel_room_choices track by $index">
-           <li ng-repeat="(key1,value1) in value track by $index">
-             {{key1}} {{value1}}
-           </li>
-         </ul>
-        </td>
-        <td>
-          
-        </td>
-      </tr>
--->
     </table>
   </div>
-<!--  <pre>{{hotelDetail.data | json}}</pre>-->
-<!--
-  <table class="table table-hover">
-    <tr>
-      <td>
-        <table class="table table-bordered">
-          <tr>
-            <td>aaaaaaaa</td>
-          </tr>
-          <tr>
-            <td>bbbbbbb</td>
-          </tr>
-        </table>
-      </td>
-      <td>
-        <table class="table table-bordered">
-          <tr ng-repeat="(key,value) in hotelDetail.data.hotel1">
-            <td>{{key}}</td>
-          </tr>
-          <tr>
-            <td>bbbbbbb</td>
-          </tr>
-        </table>
-      </td>
-      <td>
-        <table class="table table-bordered">
-          <tr>
-            <td>aaaaaaaa</td>
-          </tr>
-          <tr>
-            <td>bbbbbbb</td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-  </table>
--->
   </section>
-  <searchbar></searchbar>
   
-<section>
-  <h3>Most recent hotels</h3>
-  <!--  latest hotels-->
-    <latest-hotel></latest-hotel>
-  <!--  /latest hotels-->
+</div>
+<section class="bg bg-cmt">
+  <div class="col-sm-10 col-sm-offset-1 text-center">
+
+    <h1>We provide best hotels around the world</h1>
+    <!--          searchbar-->
+     <searchbar></searchbar>
+    <!--          end searchbar-->
+  </div>
 </section>
+<div class="container">
+  <section>
+    <h3>Most recent hotels</h3>
+    <!--  latest hotels-->
+      <latest-hotel></latest-hotel>
+    <!--  /latest hotels-->
+  </section>
 </div>

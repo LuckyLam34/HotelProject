@@ -137,6 +137,25 @@ var FirebaseService = (function() {
       
       list.$indexFor(id);
     });
+  };
+  
+  FirebaseService.prototype.addComment = function(uid, username, messages, id, avata) {
+    var link = 'https://shining-fire-8539.firebaseio.com/myhotels/' + id + '/hotel_comments';
+    var ref = new Firebase(link);
+    var list = this.$firebaseArray(ref);
+    var data = {
+      created: (new Date()).toLocaleString(),
+      from: username,
+      id: uid,
+      messages: messages,
+      profile_picture: avata
+    };
+    
+    list.$add(data).then(function(ref) {
+      var id = ref.key();
+      alert('Your messages is added');
+      list.$indexFor(id);
+    });
   }
   
   return FirebaseService;

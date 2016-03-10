@@ -54,6 +54,13 @@ section {
   @extend .the-bg;
 }
 
+.bg-cmt {
+  background: url('../Resources/hotel_cmt.jpg') no-repeat bottom center fixed;
+  background-size: cover;
+  @extend .the-bg; 
+  margin-top: 22px;
+}
+
 .bold {
   font-weight: bold;
 }
@@ -156,6 +163,15 @@ ul.list ul {
   font-size: 77% !important;
   line-height: 203% !important;
 }
+
+hr {
+  border-top: 1px solid #fafafa;
+}
+
+footer {
+  margin-top: 20px;  
+}
+
 @media only screen and (max-width: 740px) {
   .my-jumbotron {
     h2 {
